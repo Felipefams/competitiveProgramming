@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "charconv": "cpp",
+        "cmath": "cpp",
+        "string_view": "cpp",
+        "regex": "cpp"
+    }
+}
