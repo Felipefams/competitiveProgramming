@@ -6,6 +6,9 @@ using namespace std;
 #define ll long long
 #define ld long double
 #define sz(x) ((int)x.size())
+#define watch(x) cout << (#x) << " is " << (x) << endl
+#define max3(a, b, c) max(a, max(b, c)) 
+#define min3(a, b, c) min(a, min(b, c)) 
 
 typedef pair<int,int> pair_int;
 
