@@ -17,6 +17,9 @@ typedef pair<int,int> pair_int;
 // }
 
 int main(){
+	//O(N + K) where N is the size of the loop and K is the sum
+	//of the difference between v[i] and v[i-1] of all the numbers
+	// in the loop (that may be a wrong analysis tho)
 	ios_base::sync_with_stdio(0);
 	cin.tie(0); cout.tie(0);
 	int n = 0;
