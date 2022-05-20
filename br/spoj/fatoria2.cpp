@@ -38,7 +38,7 @@ int32_t main(){
 	cin.tie(0); cout.tie(0);
 	int t = 0;
 	cin >> t;
-	//cout << solve(t) << "\n";
-	cout << solve_i(t) << "\n";
+	cout << solve(t) << "\n";
+	//cout << solve_i(t) << "\n";
 	return (0);
 }

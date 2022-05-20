@@ -36,6 +36,8 @@ int main(){
 	int t = 0;
 	cin >> t;
 	while(t--){
+		int a; cin >> a;
+		int b; cin >> b;
 
 	}
 	return (0);

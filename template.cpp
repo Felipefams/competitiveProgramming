@@ -6,11 +6,8 @@ using namespace std;
 #define exp 1e9
 #define imax INT_MAX
 #define imin INT_MIN
-//types
-#define ll long long
-#define ld long double
 //functions
-#define sqr(a) a*a
+#define sqr(a) (a)*(a)
 #define sz(x) ((int)x.size())
 #define watch(x) cout << (#x) << " is " << (x) << endl
 #define max3(a, b, c) max(a, max(b, c)) 
@@ -22,8 +19,13 @@ using namespace std;
 #define mk make_pair
 #define fi first
 #define sc second
-bool prime(ll a) { if (a==1) return 0; for (int i=2;i<=round(sqrt(a));++i) if (a%i==0) return 0; return 1; }
+//types
+typedef long long ll;
+typedef long double ld;
+typedef vector<int> vi;
 typedef pair<int,int> pii;
+bool prime(ll a) { if (a==1) return 0; for (int i=2;i<=round(sqrt(a));++i) if (a%i==0) return 0; return 1; }
+
 
 void solve(){
 	//solution
