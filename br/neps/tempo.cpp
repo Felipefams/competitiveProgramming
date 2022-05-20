@@ -19,25 +19,23 @@ void solve(){
 //falta terminar
 int main(){
 	ios_base::sync_with_stdio(0);
-	cin.tie(0); cout.tie(0);
+	cin.tie(0);
 	int t = 0;
 	cin >> t;
-	unordered_map<char, int> m;
-
+	vector<int> arr;
+	list<int> l;
+	int count = 0;
 	while(t--){
-		int count = 0;
 		char c; cin >> c;
 		string s; cin >> s;
 		const int svalue = stoi(s);
 		if(c == 'E')
-			arr.push_back(c);
-		else if (c == 'R')
-			continue;
+			cout << svalue << " " << arr[svalue] << '\n';	
 		else if(c == 'T')
 			count += svalue;
-		else
-			count++;
-		m[c] += count;
+		count++;
+
 	}
+
 	return (0);
 }
