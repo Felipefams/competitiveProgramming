@@ -26,7 +26,10 @@ bool prime(ll a) { if (a==1) return 0; for (int i=2;i<=round(sqrt(a));++i) if (a
 typedef pair<int,int> pii;
 
 void solve(){
-	//solution
+	ll a; cin >> a;
+	ll b; cin >> b;
+	if(a % b == 0) cout << 0 << '\n';
+	else cout << b - a % b << '\n';
 }
 
 // cout << "Case #" << t << ": ";
@@ -36,9 +39,7 @@ int main(){
 	int t = 0;
 	cin >> t;
 	while(t--){
-		int a; cin >> a;
-		int b; cin >> b;
-
+		solve();
 	}
 	return (0);
 }
