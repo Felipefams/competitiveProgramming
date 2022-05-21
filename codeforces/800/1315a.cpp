@@ -26,7 +26,6 @@ typedef vector<int> vi;
 typedef pair<int,int> pii;
 bool prime(ll a) { if (a==1) return 0; for (ll i=2;i*i<=a;++i) if (a%i==0) return 0; return 1; }
 
-
 int solve(){
 	int a,b,x,y; 
 	cin >> a >> b >> x >> y;

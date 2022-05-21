@@ -30,7 +30,6 @@ typedef pair<int,int> pii;
 
 void solve(){
 	int n; cin >> n;
-	pii p;
 	vi a; vi b; 
 	for(int i = 0; i < n; ++i){
 		cin >> a[i];
@@ -38,7 +37,25 @@ void solve(){
 	for(int i = 0; i < n; ++i){
 		cin >> b[i];
 	}
-	
+	int count = 0;
+	for(int i = 0; i < n-1; ++i){
+		for(int j = i+1; j < n; ++j){
+			bool f1 = false, f2 = false;
+			for(int k = 0; k < n; ++k){
+				if(b[k] == a[i])
+					f1 = true;
+				if(b[k] == a[j])
+					f2 = true;
+				if(f2 && !f1)
+					break;
+				if(f1 && f2){
+					count++;
+					break;
+				}
+			}
+		}
+	}
+	cout << count << '\n';
 }
 
 // cout << "Case #" << t << ": ";
@@ -48,7 +65,7 @@ int main(){
 	int t = 0;
 	cin >> t;
 	while(t--){
-
+		solve();
 	}
 	return (0);
 }
