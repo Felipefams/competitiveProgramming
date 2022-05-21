@@ -24,11 +24,13 @@ typedef long long ll;
 typedef long double ld;
 typedef vector<int> vi;
 typedef pair<int,int> pii;
-bool prime(ll a) { if (a==1) return 0; for (int i=2;i<=round(sqrt(a));++i) if (a%i==0) return 0; return 1; }
+bool prime(ll a) { if (a==1) return 0; for (ll i=2;i*i<=a;++i) if (a%i==0) return 0; return 1; }
 
 
-void solve(){
-	//solution
+int solve(){
+	int a,b,x,y; 
+	cin >> a >> b >> x >> y;
+	return max(max(x,a - 1 - x) * b, a * max(y, b - 1 - y));
 }
 
 // cout << "Case #" << t << ": ";
@@ -38,7 +40,7 @@ int main(){
 	int t = 0;
 	cin >> t;
 	while(t--){
-
+		cout << solve() << "\n";
 	}
 	return (0);
 }
