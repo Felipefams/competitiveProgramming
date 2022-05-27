@@ -27,8 +27,24 @@ typedef pair<int,int> pii;
 bool prime(ll a) { if (a==1) return 0; for (int i=2;i<=round(sqrt(a));++i) if (a%i==0) return 0; return 1; }
 
 
+
 void solve(){
-	//solution
+	int n,m; cin >> n >> m;
+	umap<string, int> mp;
+	while(m--){
+		string s;
+		cin >> s;
+		mp[s]++;
+	}
+	for(auto x : mp){
+		cout << x.fi << " " << x.second << "\n";
+	}
+	while(n--){
+		int k; cin >> k;
+		while(k--){
+			string s; cin >> s;
+		}
+	}
 }
 
 // cout << "Case #" << t << ": ";
@@ -38,7 +54,7 @@ int main(){
 	int t = 0;
 	cin >> t;
 	while(t--){
-
+		solve();
 	}
 	return (0);
 }
