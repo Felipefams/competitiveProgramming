@@ -30,18 +30,13 @@ void solve(){
 	int n,m; cin >> n >> m;
 	//mapa pra guardar os horarios de cada onibus
 	umap<string, int> mp;
-	//vetor para guardar os horarios que cada passageiro
-	//pode pegar o onibus 
+	//vetor para guardar os horarios que cada passageiro pode pegar o onibus
 	vector<vector<string>> vs;
 	while(m--){
 		string s;
 		cin >> s;
 		mp[s]++;
 	}
-	// for(auto x : mp){
-	// 	cout << x.fi << " " << x.second << "\n";
-	// }
-	// for(int i = 0; i < n; ++i){
 	while(n--){
 		int k; cin >> k;
 		vector<string> tmp(k);//guardar o horario de cada passageiro
