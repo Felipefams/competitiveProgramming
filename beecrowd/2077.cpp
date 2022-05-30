@@ -26,24 +26,30 @@ typedef vector<int> vi;
 typedef pair<int,int> pii;
 bool prime(ll a) { if (a==1) return 0; for (int i=2;i<=round(sqrt(a));++i) if (a%i==0) return 0; return 1; }
 
-
-
 void solve(){
 	int n,m; cin >> n >> m;
+	//mapa pra guardar os horarios de cada onibus
 	umap<string, int> mp;
+	//vetor para guardar os horarios que cada passageiro
+	//pode pegar o onibus 
+	vector<vector<string>> vs;
 	while(m--){
 		string s;
 		cin >> s;
 		mp[s]++;
 	}
-	for(auto x : mp){
-		cout << x.fi << " " << x.second << "\n";
-	}
+	// for(auto x : mp){
+	// 	cout << x.fi << " " << x.second << "\n";
+	// }
+	// for(int i = 0; i < n; ++i){
 	while(n--){
 		int k; cin >> k;
+		vector<string> tmp(k);//guardar o horario de cada passageiro
 		while(k--){
 			string s; cin >> s;
+			tmp.pb(s);	
 		}
+		vs.pb(tmp);	
 	}
 }
 
