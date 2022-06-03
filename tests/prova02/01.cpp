@@ -52,8 +52,7 @@ int main(){
 			sum += vp[i].second;
 		}
 		if(copy == 1) cout << 0 << endl;
-		else
-		cout << sum - 5 << "\n";
+		else cout << sum - 5 << "\n";
 	}
 	return (0);
 }
