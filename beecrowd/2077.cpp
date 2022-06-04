@@ -1,3 +1,4 @@
+//nao da pra fazer essa daqui ainda porque precisa usar fluxo e eu nao sei grafos ainda
 #include <bits/stdc++.h>
 using namespace std;
 //constants
