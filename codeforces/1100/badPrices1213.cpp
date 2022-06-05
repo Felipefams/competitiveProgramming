@@ -26,9 +26,43 @@ typedef vector<int> vi;
 typedef pair<int,int> pii;
 bool prime(ll a) { if (a==1) return 0; for (int i=2;i*i<=a;++i) if (a%i==0) return 0; return 1; }
 
+bool binarySearch(vector<ll> &v, ll x){
+	int l = 0; int r = v.size() - 1;
+	while(l <= r){
+		int m = l + (r-1) / 2;
+		if(arr[m] > x)
+			return true;
+		if(arr[m] < x)
+			l = m + 1;
+		else 
+			r = m - 1;
+	}
+	return false;
+}
 
 void solve(){
-	//solution
+	int n; cin >> n;
+	int count = 0;
+	vector<ll> v(n);
+	for(int i = 0; i < n; ++i) cin >> v[i];	
+	for(auto x : v) cout << x;
+	cout << endl;
+	sort(v.begin(), v.end());
+	for(auto x : v){
+
+	}
+	/*
+	for(int i = 0; i < n; ++i){
+		for(int k = i; k < n; ++k){
+			if(v[k] < v[i]){
+				count++;
+				break;
+			}
+		}
+	}
+	*/
+
+	cout << count << "\n";
 }
 
 // cout << "Case #" << t << ": ";
@@ -38,7 +72,7 @@ int main(){
 	int t = 0;
 	cin >> t;
 	while(t--){
-
+		solve();
 	}
 	return (0);
 }

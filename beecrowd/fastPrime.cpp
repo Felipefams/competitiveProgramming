@@ -22,7 +22,7 @@ using namespace std;
 #define mk make_pair
 #define fi first
 #define sc second
-bool prime(ll a) { if (a==1) return 0; for (ll i=2;i*i<= a;++i) if (a%i==0) return 0; return 1; }
+bool prime(ll a) {for (ll i=2;i*i<= a;++i) if (a%i==0) return false; return true; }
 typedef pair<int,int> pii;
 
 bool solve(ll a){
