@@ -1,5 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
+//vrum vrum
+#define fast_io ios_base::sync_with_stdio(0); cin.tie(0);
 //constants
 #define PI 3.1415926535897932384626433832795
 #define MOD 1000000007
@@ -10,8 +12,6 @@ using namespace std;
 #define sqr(a) (a)*(a)
 #define sz(x) ((int)x.size())
 #define watch(x) cout << (#x) << " is " << (x) << endl
-#define max3(a, b, c) max(a, max(b, c)) 
-#define min3(a, b, c) min(a, min(b, c)) 
 //utils
 #define umap unordered_map
 #define uset unordered_set
@@ -33,8 +33,7 @@ void solve(){
 
 // cout << "Case #" << t << ": ";
 int main(){
-	ios_base::sync_with_stdio(0);
-	cin.tie(0);// cout.tie(0);
+	fast_io;
 	int t = 0;
 	cin >> t;
 	while(t--){
