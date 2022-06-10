@@ -28,16 +28,37 @@ bool prime(ll a) { if (a==1) return 0; for (int i=2;i*i<=a;++i) if (a%i==0) retu
 
 
 void solve(){
-	//solution
+	int n,m;
+	cin >> n >> m;
+	vector<vi> v(n, vector<int>(m, 0));
+	for(int i = 0; i < n; ++i){
+		for(int j = 0; j < m; ++j){
+			cin >> v[i][j];
+		}
+	}
+	int maior = imin;
+	//row sum
+	for(int i = 0; i < n; ++i){	
+		int sum = 0;
+		for(int j = 0; j < m; ++j){
+			sum += v[i][j];
+		}	
+		maior = max(sum, maior);
+	}
+	//column sum
+	for(int j = 0; j < m; ++j){
+		int sum = 0;
+		for(int i = 0; i < n; ++i){
+			sum += v[i][j];
+		}
+		maior = max(sum, maior);
+	}
+	cout << maior << "\n";
 }
 
 // cout << "Case #" << t << ": ";
 int main(){
 	fast_io;
-	int t = 0;
-	cin >> t;
-	while(t--){
-
-	}
+	solve();
 	return (0);
 }
