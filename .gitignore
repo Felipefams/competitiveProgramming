@@ -32,3 +32,5 @@
 *.app
 *.class #for java
 
+#folders
+.vscode
