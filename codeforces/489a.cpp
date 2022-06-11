@@ -1,3 +1,4 @@
+//https://codeforces.com/contest/489/problem/A
 #include <bits/stdc++.h>
 using namespace std;
 //vrum vrum
@@ -26,16 +27,38 @@ typedef vector<int> vi;
 typedef pair<int,int> pii;
 bool prime(ll a) { if (a==1) return 0; for (int i=2;i*i<=a;++i) if (a%i==0) return 0; return 1; }
 
+bool isSorted(vector<ll> &v){
+	for(int i = 1; i < v.size(); ++i)
+		if(v[i-1] > v[i])
+			return false;
+	return true;
+}
 
 void solve(){
-	// a ideia e comparar o vetor nao ordenado com o ordenado
-	// e ver a diferenca entre os movimentos
+	//compare the sorted vector with the non-sorted vector
+	//and track the swaps
 	int n; cin >> n;
 	vector<ll> v(n);
 	for(int i = 0; i < n; ++i) cin >> v[i];
 	vector<ll> srtd = v;
 	sort(srtd.begin(), srtd.end());
-
+	vector<pii> pos;//vector to save the elements positions, max size will be N
+	do{
+	for(int i = 0; i < n; ++i){
+		if(v[i] != srtd[i]){
+			for(int j = i; j < n; ++j){
+				if(v[j] == srtd[i]){
+					swap(v[i],v[j]);
+					pos.pb({i, j});
+				}
+			}
+		}
+	}
+	}while(!isSorted(v));
+	cout << pos.size() << "\n";
+	for(auto &x : pos){
+		cout << x.fi << " " << x.sc << "\n";
+	}
 }
 
 // cout << "Case #" << t << ": ";
