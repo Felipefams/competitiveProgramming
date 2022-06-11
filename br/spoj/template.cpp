@@ -27,15 +27,17 @@ typedef pair<int,int> pii;
 bool prime(ll a) { if (a==1) return 0; for (int i=2;i*i<=a;++i) if (a%i==0) return 0; return 1; }
 
 
-bool solve(){
-	ll n; cin >> n;
-	return prime(n);
+void solve(){
+	//solution
 }
 
 // cout << "Case #" << t << ": ";
 int main(){
 	fast_io;
-	ll n; cin >> n;
-	cout << ((prime(n))?"sim":"nao");
+	int t = 0;
+	cin >> t;
+	while(t--){
+
+	}
 	return (0);
 }
