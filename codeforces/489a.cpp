@@ -46,19 +46,22 @@ void solve(){
 	do{
 	for(int i = 0; i < n; ++i){
 		if(v[i] != srtd[i]){
-			for(int j = i; j < n; ++j){
+			for(int j = v.size() - 1; j > i; --j){
 				if(v[j] == srtd[i]){
 					swap(v[i],v[j]);
 					pos.pb({i, j});
+					break;
 				}
 			}
 		}
 	}
 	}while(!isSorted(v));
 	cout << pos.size() << "\n";
+	
 	for(auto &x : pos){
 		cout << x.fi << " " << x.sc << "\n";
 	}
+	
 }
 
 // cout << "Case #" << t << ": ";
