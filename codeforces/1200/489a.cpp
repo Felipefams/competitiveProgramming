@@ -46,6 +46,7 @@ void solve(){
 	do{
 	for(int i = 0; i < n; ++i){
 		if(v[i] != srtd[i]){
+			//de tras pra frente otimiza no pior caso
 			for(int j = v.size() - 1; j > i; --j){
 				if(v[j] == srtd[i]){
 					swap(v[i],v[j]);
