@@ -28,16 +28,22 @@ bool prime(ll a) { if (a==1) return 0; for (int i=2;i*i<=a;++i) if (a%i==0) retu
 
 
 void solve(){
-	//solution
+	int t = 0;
+	cin >> t;
+	set<pii> sp;
+	queue<pair<char,int>> q;
+	while(t--){
+		char c; cin >> c;	
+		int k; cin >> k;
+		pair<char,int> tmp;
+		tmp.fi = c; tmp.sc = k;
+		q.emplace(tmp);
+	}
 }
 
 // cout << "Case #" << t << ": ";
 int main(){
 	fast_io;
-	int t = 0;
-	cin >> t;
-	while(t--){
-
-	}
+	solve();
 	return (0);
 }
