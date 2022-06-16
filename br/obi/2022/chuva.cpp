@@ -27,19 +27,24 @@ typedef pair<int,int> pii;
 bool prime(ll a) { if (a==1) return 0; for (int i=2;i*i<=a;++i) if (a%i==0) return 0; return 1; }
 
 
-int solve(){
-	int n; cin >> n;
-	int s; cin >> s; 
-	vi v(n);
-	for(int i = 0; i < n; ++i) cin >> v[i];
-	for(int i = 0, j = 0; i < n; ++i){
-
+void solve(){
+	map<ll,ll> mp;
+	ll n; cin >> n;
+	ll x; cin >> x; 
+	mp[0] = 1;
+	ll ans = 0, s = 0;
+	for(int i = 0; i < n; ++i){
+		ll k; cin >> k; s+= k;
+		ll obj = s-x;
+		ans += mp[obj];
+		mp[s]++;
 	}
+	cout << ans << endl;
 }
 
 // cout << "Case #" << t << ": ";
 int main(){
 	fast_io;
-	cout << solve();
+	solve();
 	return (0);
 }
