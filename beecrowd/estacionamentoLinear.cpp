@@ -33,11 +33,18 @@ void solve(){
 
 // cout << "Case #" << t << ": ";
 int main(){
-	fast_io;
-	int t = 0;
-	cin >> t;
-	while(t--){
+	fast_io;	
+	int n, k;
+	while(true){
+		cin >> n >> k;
+		if(n == 0 && k == 0) break;
+		priority_queue<int> k;
+		stack<int> st;
+		while(n--){
+			int c, s; // chegada e saida
+			cin >> c >> s;
 
+		}
 	}
 	return (0);
 }
