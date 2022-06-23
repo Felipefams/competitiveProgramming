@@ -3,6 +3,7 @@ using namespace std;
 //vrum vrum
 #define fast_io ios_base::sync_with_stdio(0); cin.tie(0);
 //constants
+#define endl "\n"
 #define PI 3.1415926535897932384626433832795
 #define MOD 1000000007
 #define exp 1e9
