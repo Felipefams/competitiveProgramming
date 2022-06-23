@@ -1,3 +1,4 @@
+// https://codeforces.com/problemset/problem/1301/A
 #include <bits/stdc++.h>
 using namespace std;
 //vrum vrum
@@ -30,8 +31,10 @@ bool prime(ll a) { if (a==1) return 0; for (int i=2;i*i<=a;++i) if (a%i==0) retu
 bool solve(){
 	string a,b,c;
 	cin >> a >> b >> c;
-	if(c == a || c == b) return true;
-
+	for(int i = 0; i < a.size(); ++i)
+		if(c[i] != a[i] && c[i] != b[i])
+			return false;
+	return true;
 }
 
 // cout << "Case #" << t << ": ";
@@ -40,7 +43,10 @@ int main(){
 	int t = 0;
 	cin >> t;
 	while(t--){
-
+		if(solve())
+			cout << "YES" << endl;
+		else
+			cout << "NO" << endl;
 	}
 	return (0);
 }
