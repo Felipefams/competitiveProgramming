@@ -40,6 +40,11 @@ ll solve(){
 	ll ans = 0;
 	pii c;
 	map<pii, int> v;
+	// v[{0,0}] = 0; 
+	v.emplace(mk(0,0),1);
+	// for(auto &x : v){
+	// 	cout << x.first.first << " " << x.first.second << endl;
+	// }
 	for(int i = 0; i < a.length(); ++i){
 		if(a[i] == 'N'){
 			v[c]++;
@@ -57,6 +62,7 @@ ll solve(){
 			v[c]++;
 			c.sc--;
 		}
+		// watch(ans);
 		if(v[c] == 0)
 			ans += 5;
 		else ans++;
