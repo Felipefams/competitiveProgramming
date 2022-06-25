@@ -38,35 +38,34 @@ typedef Cord* ref_cord;
 ll solve(){	
 	string a; cin >> a;
 	ll ans = 0;
-	pii c;
-	map<pii, int> v;
-	// v[{0,0}] = 0; 
-	v.emplace(mk(0,0),1);
-	// for(auto &x : v){
-	// 	cout << x.first.first << " " << x.first.second << endl;
-	// }
-	for(int i = 0; i < a.length(); ++i){
+	pii c = {0,0};
+	map<pii, ll> v;
+	v.emplace(c,1);	
+	for(ll i = 0; i < a.length(); ++i){
 		if(a[i] == 'N'){
-			v[c]++;
 			c.fi--;
+			v[c]++;
 		}
 		else if(a[i] == 'S'){
-			v[c]++;
 			c.fi++;
+			v[c]++;
 		}
 		else if(a[i] == 'E'){
-			v[c]++;
 			c.sc++;
+			v[c]++;
 		}
 		else if(a[i] == 'W'){
-			v[c]++;
 			c.sc--;
+			v[c]++;
 		}
-		// watch(ans);
-		if(v[c] == 0)
+		if(v[c] == 1)
 			ans += 5;
-		else ans++;
+		else
+			ans++;
 	}	
+		// for(auto &x : v){
+		// 	cout << "X = " << x.fi.fi << " Y = " << x.fi.sc << " C = " << x.sc <<endl;
+		// }
 	return ans;
 }
  
