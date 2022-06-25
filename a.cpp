@@ -1,3 +1,4 @@
+//https://codeforces.com/contest/1351/problem/C
 #include <bits/stdc++.h>
 using namespace std;
 //vrum vrum
@@ -34,7 +35,14 @@ typedef struct{
 typedef Cord* ref_cord;
 */
  
- 
+/*
+ * we need to look at the edges, the path, not the
+ * block itself.
+ * [1,1]-[1,2]
+ * || ||  | |
+ * [2,1]-[2,2]
+ * the path you make to go from 1,1 to 2,2 can be different
+ * */ 
 ll solve(){	
 	string a; cin >> a;
 	ll ans = 0;
