@@ -35,35 +35,7 @@ void solve(){
 	int amnt = ((n*m)/2) + 1;
 	int w = 0;
 	int b = 0;
-	for(int i = 0; i < n; ++i){
-		for(int j = 0; j < m; ++j){
-			if(amnt > 0){
-				amnt--;
-				b++;
-				v[i][j] = 'B';
-			}else{
-				v[i][j] = 'W';
-				w++;
-			}
-		}
-	}
-	for(int i = 0; i < n; ++i){
-		for(int j = 0; j < m; ++j){
-			if(b != w + 1){
-				if(v[i][j] == 'W'){
-					v[i][j] = 'B';
-				}
-			}else{
-				break;
-			}	
-		}
-	}
-	for(int i = 0; i < n; ++i){
-		for(int j = 0; j < n; ++j){
-			cout << v[i][j];
-		}
-		cout << endl;
-	}
+	for(int i = 0; i < n; ++i)
 }
 
 // cout << "Case #" << t << ": ";
