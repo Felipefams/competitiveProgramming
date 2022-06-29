@@ -1,3 +1,4 @@
+//https://codeforces.com/contest/1333/problem/A
 #include <bits/stdc++.h>
 using namespace std;
 //vrum vrum
@@ -31,11 +32,20 @@ void solve(){
 	//quando tiver B um do lado do outro, nao conta
 	int n, m;
 	cin >> n >> m;
-	vector<vector<char>> v(n+1, vector<char>(m+1));
-	int amnt = ((n*m)/2) + 1;
-	int w = 0;
-	int b = 0;
-	for(int i = 0; i < n; ++i)
+	vector<vector<char>> v(n, vector<char>(m));
+	for(int i = 0; i < n; ++i){
+		for(int j = 0; j < m; ++j){
+				v[i][j] = 'B';
+		}
+	}
+	v[0][0] = 'W';	
+	for(auto &x : v){
+		for(auto &y : x){
+			cout << y;
+		}
+		cout << endl;
+	}
+	// for(int i = 0; i < n; ++i){}
 }
 
 // cout << "Case #" << t << ": ";
