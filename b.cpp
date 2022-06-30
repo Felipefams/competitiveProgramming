@@ -45,6 +45,7 @@ void solve(){
 		diff.pb(x.fi - x.sc);
 	}
 	sort(diff.begin(), diff.end());
+	//salvar a posicao e depois ordenar usando a pos da diff
 	vector<ll> pos;
 	for(auto &x : diff){
 		cout << x << " ";
