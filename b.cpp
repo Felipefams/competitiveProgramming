@@ -44,19 +44,21 @@ void solve(){
 	for(auto &x : pv){
 		diff.pb(x.fi - x.sc);
 	}
-	sort(diff.begin(), diff.end());
-	//salvar a posicao e depois ordenar usando a pos da diff
-	vector<ll> pos;
-	for(auto &x : diff){
-		cout << x << " ";
+	vector<ll> sdiff = diff;
+	sort(sdiff.begin(), sdiff.end());
+	umap<ll,int> newPos;
+	vector<int> pos;
+	for(int i = 0; i < sdiff.size(); ++i){
+		newPos[sdiff[i]] = i;
 	}
-	cout << endl;
-	/*
+	vector<pair<ll, ll>> tmp = pv;
 	for(int i = 0; i < n/2; ++i){
-		cout << pv[i].fi << " " << pv[i].sc << " ";
+		tmp[i] = pv[newPos[diff[i]]];
+	}
+	for(int i = 0; i < n/2; ++i){
+		cout << tmp[i].fi << " " << tmp[i].sc << " ";
 	}
 	cout << endl;
-	*/
 }
 
 // cout << "Case #" << t << ": ";
