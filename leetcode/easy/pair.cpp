@@ -1,4 +1,3 @@
-//https://codeforces.com/contest/1339/problem/B
 #include <bits/stdc++.h>
 using namespace std;
 //vrum vrum
@@ -28,15 +27,35 @@ typedef vector<int> vi;
 typedef pair<int,int> pii;
 bool prime(ll a) { if (a==1) return 0; for (int i=2;i*i<=a;++i) if (a%i==0) return 0; return 1; }
 
+vector<int> twoSum(vector<int>& nums, int target) {
+        umap<int, int> mp;
+	    int n = nums.size();
+	    for(int i = 0; i < n; ++i){
+	        mp[nums[i]] = i;
+	    }
+	    vector<int> ans(2);
+	    for(int i = 0; i < n; ++i){
+	    	int k = target - nums[i];
+	    	if(mp.count(k) != 0 && mp[k] != i){
+	    		ans[0] = i;
+	    		ans[1] = mp[k];
+	    		break;
+	    	}
+	    }
+        for(int i = nums.size() - 1; i >= 0; --i){
+	    	int k = target - nums[i];
+	    	if(mp.count(k) != 0 && mp[k] != i){
+	    		ans[0] = i;
+	    		ans[1] = mp[k];
+	    		break;
+	    	}
+	    }
+	    return ans;
+    }
+
 // cout << "Case #" << t << ": ";
 int main(){
 	fast_io;
-	string s;cin >> s;
-	int count = 0;
-	int n = s.length();
-	stack<char> st;
-	if(count % 2 == 0) cout << "No\n";
-	else cout << "Yes\n";
-
+	
 	return (0);
 }

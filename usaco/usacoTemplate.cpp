@@ -1,4 +1,8 @@
-//https://codeforces.com/contest/1339/problem/B
+/*
+ID: augusto15
+TASK: test
+LANG: C++                 
+*/
 #include <bits/stdc++.h>
 using namespace std;
 //vrum vrum
@@ -28,15 +32,18 @@ typedef vector<int> vi;
 typedef pair<int,int> pii;
 bool prime(ll a) { if (a==1) return 0; for (int i=2;i*i<=a;++i) if (a%i==0) return 0; return 1; }
 
-// cout << "Case #" << t << ": ";
-int main(){
-	fast_io;
-	string s;cin >> s;
-	int count = 0;
-	int n = s.length();
-	stack<char> st;
-	if(count % 2 == 0) cout << "No\n";
-	else cout << "Yes\n";
 
+void solve(){
+	//solution
+}
+
+// cout << "Case #" << t << ": ";
+int main(){fast_io;
+
+	ofstream fout ("test.out");
+    ifstream fin ("test.in");
+    int a, b;
+    fin >> a >> b;
+    fout << a+b << endl;
 	return (0);
 }

@@ -1,4 +1,3 @@
-//https://codeforces.com/contest/1339/problem/B
 #include <bits/stdc++.h>
 using namespace std;
 //vrum vrum
@@ -28,15 +27,33 @@ typedef vector<int> vi;
 typedef pair<int,int> pii;
 bool prime(ll a) { if (a==1) return 0; for (int i=2;i*i<=a;++i) if (a%i==0) return 0; return 1; }
 
+
+void solve(){
+	string s;
+	cin >> s;
+	int ans = 0;
+	for(int i = s.length() - 1; i >= 0; --i){
+		if(s[i] == 'I') ans++;
+		else if(s[i] == 'V') ans += 5;
+		else if(s[i] == 'X') ans += 10;
+		else if(s[i] == 'L') ans += 50;
+		else if(s[i] == 'C') ans += 100;
+		else if(s[i] == 'D') ans += 500;
+		else ans += 1000;
+	}
+	for(int i = 1; i < s.length(); ++i){
+		string tmp = "";
+		tmp.pb(s[i-1]); tmp.pb(s[i]);
+		if(tmp == "IV" || tmp == "IX") ans -= 2;
+		else if(tmp == "XL" || tmp == "XC") ans -= 20;
+		else if(tmp == "CD" || tmp == "CM") ans -= 200;
+	}
+	cout << ans << endl;
+}
+
 // cout << "Case #" << t << ": ";
 int main(){
 	fast_io;
-	string s;cin >> s;
-	int count = 0;
-	int n = s.length();
-	stack<char> st;
-	if(count % 2 == 0) cout << "No\n";
-	else cout << "Yes\n";
-
+	solve();
 	return (0);
 }

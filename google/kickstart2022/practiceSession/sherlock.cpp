@@ -1,4 +1,4 @@
-//https://codeforces.com/contest/1339/problem/B
+//https://codingcompetitions.withgoogle.com/kickstart/round/00000000008f4a94/0000000000b5496b
 #include <bits/stdc++.h>
 using namespace std;
 //vrum vrum
@@ -28,15 +28,30 @@ typedef vector<int> vi;
 typedef pair<int,int> pii;
 bool prime(ll a) { if (a==1) return 0; for (int i=2;i*i<=a;++i) if (a%i==0) return 0; return 1; }
 
+vector<ll> dp(10e5);
+
+ll solve(int a, int b){
+	int k = min(a,b);
+	if(k == 0)
+		return 0;
+	if(k == 1)
+		return 1;
+	if(dp[k] != 0)
+		return dp[k];	
+
+	ll ans = k + solve(a-1, b-1);
+	dp.pb(ans);
+	return ans;
+}
+
 // cout << "Case #" << t << ": ";
 int main(){
 	fast_io;
-	string s;cin >> s;
-	int count = 0;
-	int n = s.length();
-	stack<char> st;
-	if(count % 2 == 0) cout << "No\n";
-	else cout << "Yes\n";
-
+	int t = 0;
+	cin >> t;
+	for(int i = 1; i <= t; ++i){
+		int a, b; cin >> a >> b;
+		cout << "Case #" << i << ": " << solve(a,b) << endl;
+	}
 	return (0);
 }
