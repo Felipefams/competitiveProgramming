@@ -34,7 +34,28 @@ int main(){
 	string s;cin >> s;
 	int count = 0;
 	int n = s.length();
-	stack<char> st;
+	for(int i = 1; i < n; ++i){
+		if(s[i] == s[i-1]){
+			count++;
+			int p1 = i-1; //erase lower bound
+			int p2 = i;//erase upper bound
+			if(i > 1 && i < s.length() - 2){
+				int back = i - 2;
+				int front = i + 1;
+				while(s[back] == s[front]){
+					count++;
+					p1 = back;
+					p2 = front;
+					back--;
+					front++;
+					if(back < 1 || front < s.length() - 1) break;
+				}
+			}
+			s.erase(p1, p2);
+		}
+		watch(count);
+		watch(s);
+	}	
 	if(count % 2 == 0) cout << "No\n";
 	else cout << "Yes\n";
 
