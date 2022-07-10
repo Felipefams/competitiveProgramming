@@ -26,33 +26,33 @@ typedef long double ld;
 typedef vector<int> vi;
 typedef pair<int,int> pii;
 bool prime(ll a) { if (a==1) return 0; for (int i=2;i*i<=a;++i) if (a%i==0) return 0; return 1; }
-vector<pii> results;
 
-vector<pii> cpy(vector<pii> v, int n){
-	vector<pii> nv(v.size() - n);
-	for(int i = n, j = 0; n < v.size(); ++i, ++j)
+vector<pii> cpy(vector<pii> &v, int n){
+	vector<pii> nv((v.size() - n) + 1);
+	for(int i = n, j = 0; i < v.size(); ++i, ++j)
 		nv[j] = v[i];
 	return nv;
 }
 
-char solve(vector<pii> r, vector<char> teams, int n){
+char solve(vector<pii> r, vector<char> teams){
 	if(teams.size() == 1)
 		return teams[0];
-	int k = 0;
-	vector<char> nt;
-	for(int i = n; i < n; ++i){
-		k += (results[i].fi > results[i].sc)?0:1;
-		nt.pb(teams[k]);
-		k += 2;
+	int size = teams.size()/2;
+	vector<char> nt(size);
+	for(int i = 0, k = 1; i < size; ++i, k += 2){
+		if(r[i].fi > r[i].sc)
+			nt[i] = (teams[k-1]);
+		else
+			nt[i] = (teams[k]);
 	}
-	vector<pii> nv = cpy(r, n);
-	char ans = solve(nv, nt, n/2);
-	return ans;
+	vector<pii> k = cpy(r, size);
+	return solve(k, nt);
 }
 
 // cout << "Case #" << t << ": ";
 int main(){
 	fast_io;	
+	vector<pii> results;
 	vector<char> teams(16);
 	char c = 'A';
 	for(int i = 0; i < 15; ++i){
@@ -60,7 +60,7 @@ int main(){
 		results.pb(mk(k,q));
 	}
 	for(int i = 0; i < 16; ++i) teams[i] = c++;	
-	cout << solve(results,teams, 0);
+	cout << solve(results,teams);
 	return (0);
 }
 /*
