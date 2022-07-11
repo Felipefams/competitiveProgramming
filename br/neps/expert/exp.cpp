@@ -27,21 +27,39 @@ typedef vector<int> vi;
 typedef pair<int,int> pii;
 bool prime(ll a) { if (a==1) return 0; for (int i=2;i*i<=a;++i) if (a%i==0) return 0; return 1; }
 
+bool isClose(char c){
+	return(c == ')' || c == ']' || c == '}');
+}
+
+bool check(char left, char right){
+	if(left == '(')
+		return right == ')';
+	if(left == '{')
+		return right == '}';
+	if(left == '[')
+		return right == ']';
+	return false;
+}
 
 bool solve(){
 	string s; cin >> s;
 	stack<char> left;
 	stack<char> right;
+	int count = 0;
 	for(int i = 0; i < s.length(); ++i){
-		if(s[i] == '(' || s[i] == '[' || s[i] == '{')
+		if(!isClose(s[i])){
 			left.push(s[i]);
-		else
+			count--;
+		}else if(isClose(s[i])){
 			right.push(s[i]);
-	}	
-	while(left && right){
-		if(left.peek =)
-	}
-	return true;
+			if(left.empty() || !check(left.top(), right.top()))
+					return false;
+			left.pop();
+			right.pop();
+			count++;
+		}
+	}		
+	return right.size() == left.size();
 }
 
 // cout << "Case #" << t << ": ";
@@ -50,7 +68,8 @@ int main(){
 	int t = 0;
 	cin >> t;
 	while(t--){
-		cout << (solve())?"SIM":"NAO" << endl;
+		char c = (solve())?'S':'N';
+		cout << c << endl;
 	}
 	return (0);
 }
