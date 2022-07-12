@@ -31,27 +31,22 @@ bool prime(ll a) { if (a==1) return 0; for (int i=2;i*i<=a;++i) if (a%i==0) retu
 // cout << "Case #" << t << ": ";
 int main(){
 	fast_io;
+	string digit, ans;
 	while(true){
-		int a, b; cin >> a >> b;
-		if(a == 0 || b == 0) break;
-		vector<int> v(a);
-		for(int i = 0; i < a; ++i) cin >> v[i];
-		vector<int> ord = v; sort(ord.begin(), ord.end());
-		umap<int,int> mp;
-		vector<int> ans;
-		for(int i = 0; i < b; ++i) mp[ord[i]]++;
-		for(int i = 0; i < a; ++i){
-			if(mp[v[i]] > 0){
-				mp[v[i]] = 0;
-			}
-			else if(mp[v[i]] == 0){
-				ans.pb(v[i]);
-			}
-		}
-		for(int i = 0; i < ans.size(); ++i){
-			cout << ans[i] << " ";
-		}
-		cout << endl;
+		int n, d; cin >> n >> d;
+		if(n == 0 || d == 0) break;
+		 cin >> digit;
+        int erased = 0;
+        for(char cur : digit){
+            while(ans.size() > 0 && cur > ans.back() && erased < d){
+                ans.pop_back();
+                erased++;
+            }
+
+            if(ans.size() < n-d) ans.push_back(cur);
+        }
+        cout << ans << "\n";
+        digit.clear();
+        ans.clear();
 	}
-	return (0);
-}
+	return (0); }
