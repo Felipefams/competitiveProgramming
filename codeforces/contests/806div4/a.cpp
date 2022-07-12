@@ -29,7 +29,12 @@ bool prime(ll a) { if (a==1) return 0; for (int i=2;i*i<=a;++i) if (a%i==0) retu
 
 
 void solve(){
-	//solution
+	string str; cin >> str;
+	std::transform(str.begin(), str.end(),str.begin(), ::toupper);
+	if(str == "YES")
+		cout << "YES\n";
+	else
+		cout << "NO\n";
 }
 
 // cout << "Case #" << t << ": ";
@@ -38,7 +43,7 @@ int main(){
 	int t = 0;
 	cin >> t;
 	while(t--){
-
+		solve();
 	}
 	return (0);
 }

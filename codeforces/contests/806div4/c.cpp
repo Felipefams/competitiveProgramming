@@ -29,7 +29,24 @@ bool prime(ll a) { if (a==1) return 0; for (int i=2;i*i<=a;++i) if (a%i==0) retu
 
 
 void solve(){
-	//solution
+	int n; cin >> n;
+	vector<int> v(n); // % 10
+	for(int i = 0; i < n; ++i) cin >> v[i];
+	for(int i = 0; i < n; ++i){
+		int c; cin >> c;	
+		string s; cin >> s;
+		for(int j = 0; j < c; ++j){
+			if(s[j] == 'D'){
+				v[i]++;
+			}else{
+				v[i]--;
+			}
+			if(v[i] == -1)
+				v[i] = 9;
+		}
+	}
+	for(int i = 0; i < n; ++i) cout << v[i] % 10 << " ";
+	cout << endl;
 }
 
 // cout << "Case #" << t << ": ";
@@ -38,7 +55,7 @@ int main(){
 	int t = 0;
 	cin >> t;
 	while(t--){
-
+		solve();
 	}
 	return (0);
 }
