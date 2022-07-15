@@ -34,11 +34,24 @@ void solve(){
 
 // cout << "Case #" << t << ": ";
 int main(){
-	fast_io;
-	int t = 0;
-	cin >> t;
-	while(t--){
-
+	fast_io;	
+	int l, r; cin >> l >> r;
+	cout << endl << s[r] - s[l];	
+	vector<int> v = {10,20,30,40,50,60};//vetor original
+	cout << "V: ";
+	for(int i = 0; i < v.size(); ++i) cout << v[i] << " ";	
+	cout << endl;
+	vector<ll> s(v.size());//vetor com as somas 
+	s[0] = v[0];
+	for(int i = 1; i < v.size(); ++i){
+		s[i] += s[i-1] + v[i];
 	}
+	cout << "S: ";
+	for(int i = 0; i < v.size(); ++i) cout << s[i] << " ";	
+	cout << endl;
 	return (0);
 }
+
+
+
+
