@@ -15,7 +15,7 @@ typedef pair<int,int> pii;
 #define imax INT_MAX
 #define imin INT_MIN
 const int INF = 0x3f3f3f3f;
-const ll INF = 0x3f3f3f3f3f3f3f3fll;
+const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 //functions
 #define sqr(a) (a)*(a)
 #define sz(x) ((int)x.size())
