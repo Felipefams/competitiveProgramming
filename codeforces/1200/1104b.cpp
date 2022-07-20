@@ -31,31 +31,17 @@ bool prime(ll a) { if (a==1) return 0; for (int i=2;i*i<=a;++i) if (a%i==0) retu
 // cout << "Case #" << t << ": ";
 int main(){
 	fast_io;
-	string s;cin >> s;
+	string s;cin >> s;	
 	int count = 0;
-	int n = s.length();
-	for(int i = 1; i < n; ++i){
-		if(s[i] == s[i-1]){
+	stack<char> st;
+	for(int i = 0; i < s.length(); ++i){
+		if(st.size() && s[i] == st.top()){
+			st.pop();
 			count++;
-			int p1 = i-1; //erase lower bound
-			int p2 = i;//erase upper bound
-			if(i > 1 && i < s.length() - 2){
-				int back = i - 2;
-				int front = i + 1;
-				while(s[back] == s[front]){
-					count++;
-					p1 = back;
-					p2 = front;
-					back--;
-					front++;
-					if(back < 1 || front < s.length() - 1) break;
-				}
-			}
-			s.erase(p1, p2);
+		}else{
+			st.push(s[i]);
 		}
-		watch(count);
-		watch(s);
-	}	
+	}
 	if(count % 2 == 0) cout << "No\n";
 	else cout << "Yes\n";
 
