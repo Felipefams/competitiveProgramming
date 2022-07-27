@@ -27,14 +27,15 @@ typedef long double ld;
 typedef vector<int> vi;
 typedef pair<int,int> pii;
 bool prime(ll a) { if (a==1) return 0; for (int i=2;i*i<=a;++i) if (a%i==0) return 0; return 1; }
+
 /*
 typedef struct{
 	ll x = 0;
 	ll y = 0;
 }Cord;
 typedef Cord* ref_cord;
-*/
- 
+*/ 
+
 /*
  * we need to look at the edges, the path, not the
  * block itself.
@@ -47,7 +48,7 @@ ll solve(){
 	string a; cin >> a;
 	ll ans = 0;
 	pii c = {0,0};
-	map<pii, ll> v;
+	set<pii, ll> v; //set<pair<pii,pii>>; 
 	v.emplace(c,1);	
 	for(ll i = 0; i < a.length(); ++i){
 		if(a[i] == 'N'){
