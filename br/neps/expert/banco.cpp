@@ -27,29 +27,28 @@ typedef vector<int> vi;
 typedef pair<int,int> pii;
 bool prime(ll a) { if (a==1) return 0; for (int i=2;i*i<=a;++i) if (a%i==0) return 0; return 1; }
 
-struct smaller{
-	bool operator()(const pii &x, const pii &y){
-		return x.fi < y.fi;
-	}
-};
-
-void solve(){
-	//solution
-}
-
 // cout << "Case #" << t << ": ";
 int main(){
 	fast_io;	
 	int c, n;
 	cin >> c >> n;
-	priority_queue<pair<int,int>, vector<pii>, smaller> pq;
-	while(n--){
-		int t, d;
+	priority_queue<int, vector<int>, greater<int>> pq;
+	int tempo = 0, ans = 0;
+	int t, d;
+	for(int i = 0; i < c; ++i){
 		cin >> t >> d;
-		pq.push(mk(t,d));
+		pq.push(t+d);
 	}
-	vector<int> v(c);	
-
-
+	for(int i = c; i < n; ++i){
+		cin >> t >> d;
+		tempo = pq.top();
+		pq.pop();
+		if(tempo - t > 20) ans++;
+    	pq.push(max(tempo, t) + d);
+	}
+	if(c > n)
+		cout << 0 << endl;
+	else
+	cout << ans << endl;
 	return (0);
 }
