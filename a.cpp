@@ -49,6 +49,7 @@ ll solve(){
 	ll ans = 0;
 	pii c = {0,0};
 	set<pii, ll> v; //set<pair<pii,pii>>; 
+					//
 	v.emplace(c,1);	
 	for(ll i = 0; i < a.length(); ++i){
 		if(a[i] == 'N'){
