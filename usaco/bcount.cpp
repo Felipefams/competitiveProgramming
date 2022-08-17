@@ -29,12 +29,15 @@ const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 #define sc second
 bool prime(ll a) { if (a==1) return 0; for (int i=2;i*i<=a;++i) if (a%i==0) return 0; return 1; }
 
-int numbers[3][10010]; 
+int numbers[3][100010]; 
 void solve(){
-	int n, m; cin >> n >> m;
+	ofstream fout ("bcount.out");
+    ifstream fin ("bcount.in");
+
+	int n, m; fin >> n >> m;
 	int psa[3][n];
 	for(int i = 0; i < n; ++i){
-		int k; cin >> k;
+		int k; fin >> k;
 		numbers[k-1][i]++;
 	}
 	for(int i = 0; i < 3; ++i){
@@ -44,15 +47,16 @@ void solve(){
 		}
 	}
 	for(int i = 0; i < m; ++i){
-		int l, h; cin >> l >> h;
+		int l, h; fin >> l >> h;
 		l--, h--;
 		for(int j = 0; j < 3; ++j){
 			if(l != 0)
-				cout << psa[j][h] - psa[j][l-1] << " ";
-			else
-				cout << psa[j][h] << " ";
+				fout << psa[j][h] - psa[j][l-1];// << " ";
+			else fout << psa[j][h];// << " ";
+			if(j != 2)
+				fout << " ";
 		}
-		cout << endl;
+		fout << endl;
 	}
 }
 

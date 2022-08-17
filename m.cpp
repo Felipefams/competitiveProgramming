@@ -29,17 +29,15 @@ const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 #define sc second
 bool prime(ll a) { if (a==1) return 0; for (int i=2;i*i<=a;++i) if (a%i==0) return 0; return 1; }
 
-int arr[10][10010];
-void solve(){	
-	int n, m; cin >> n >> m;
-	for(int i = 0; i < n; ++i){
-		int k; cin >> k;
-		arr[k][i]++;
-	}
+
+void solve(){
+	long double pi = 2*acos(0.0);
+	cout << setprecision(2000) << pi;
 }
 
 // cout << "Case #" << t << ": ";
 int main(){
 	fast_io;	
+	solve();
 	return (0);
 }
