@@ -29,17 +29,45 @@ const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 #define sc second
 bool prime(ll a) { if (a==1) return 0; for (int i=2;i*i<=a;++i) if (a%i==0) return 0; return 1; }
 
-int arr[10][10010];
+//int arr[10][100000+10];
 void solve(){	
 	int n, m; cin >> n >> m;
+	int psa[10][n];
+	vector<vector<int>> arr(10, vector<int>(n));
+	vector<int> mv(m);
 	for(int i = 0; i < n; ++i){
 		int k; cin >> k;
 		arr[k][i]++;
+	}
+	for(int i = 0; i < m; ++i) cin >> mv[i];
+	for(int i = 0; i < 10; ++i){
+		psa[i][0] = arr[i][0];
+		for(int j = 1; j < n; ++j){
+			psa[i][j] = psa[i][j-1] + arr[i][j];
+		}
+	}	
+	vector<int> nSums(10);
+	int lastPos = 0;
+	for(int i = 1; i < m; ++i){
+		int currentPos = mv[i] - 1; 
+		for(int j = 0; j < 10; ++j){
+			if(currentPos > lastPos){
+				nSums[j] += psa[j][currentPos] - psa[j][lastPos]; 
+			}
+			else{
+				nSums[j] += psa[j][lastPos - 1] - psa[j][currentPos-1];
+			}
+		}
+		lastPos = currentPos;
+	}
+	for(auto &x : nSums){
+		cout << x << " ";
 	}
 }
 
 // cout << "Case #" << t << ": ";
 int main(){
 	fast_io;	
+	solve();
 	return (0);
 }
