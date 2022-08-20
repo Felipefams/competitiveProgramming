@@ -1,4 +1,5 @@
 //https://codeforces.com/contest/1351/problem/C
+//undone
 #include <bits/stdc++.h>
 using namespace std;
 //vrum vrum
@@ -49,7 +50,6 @@ ll solve(){
 	ll ans = 0;
 	pii c = {0,0};
 	set<pii, ll> v; //set<pair<pii,pii>>; 
-					//
 	v.emplace(c,1);	
 	for(ll i = 0; i < a.length(); ++i){
 		if(a[i] == 'N'){
@@ -77,7 +77,6 @@ ll solve(){
 		// 	cout << "X = " << x.fi.fi << " Y = " << x.fi.sc << " C = " << x.sc <<endl;
 		// }
 	return ans;
-	
 }
  
 // cout << "Case #" << t << ": ";
