@@ -47,29 +47,9 @@ void makeBordas(vector<vector<int>> &v, int n, int pos, int k){
 void solve(){
 	int n; cin >> n;
 	vector<vector<int>> v(n, vector<int>(n));
-	/*
-	for(int i = 0; i < n; ++i){
-		for(int j = 0; j < n; ++j){
-			cout << v[i][j] << " ";
-		}
-		cout << endl;
-	}
-	*/
-	/*
-	makeBordas(v, n, 0, 1);
-	makeBordas(v, n, 1, 2);
-	makeBordas(v, n, 2, 3);
-	makeBordas(v, n, 3, 4);
-	makeBordas(v, n, 5, 6);
-	makeBordas(v, n, 6, 7);
-	makeBordas(v, n, 7, 8);
-	makeBordas(v, n, 8, 9);
-	makeBordas(v, n, 9, 10);
-	*/
 	for(int i = 0; i < n; ++i){
 		makeBordas(v,n,i,i+1);
 	}
-//	makeBordas(v, n, 4, 5);
 	for(int i = 0; i < n; ++i){
 		for(int j = 0; j < n; ++j){
 			cout << v[i][j] << " ";
