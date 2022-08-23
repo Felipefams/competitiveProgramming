@@ -29,36 +29,19 @@ const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 #define sc second
 bool prime(ll a) { if (a==1) return 0; for (int i=2;i*i<=a;++i) if (a%i==0) return 0; return 1; }
 
-
 void solve(){
-	int n; ll b; cin >> n >> b;
-	vector<ll> v(n);
-	for(int i = 0; i < n; ++i) cin >> v[i];
-	sort(v.begin(), v.end());	
-	int i = 0, j = n-1;
-	int count = 0;
-	vector<bool> pos(n);
-	while(i <= j){
-		if(v[i] + v[j] == b){
-			pos[i] = true, pos[j] = true;
-			i++, j--;
-			count++;
-		}else if(v[j] == b){
-			v[j] = true;
-			j--;
-			count++;
-		}else if(v[i] == b){
-			v[i] = true;
-			i++;
-			count++;
-		}else if(v[i] + v[j] < b){
-			i++;
-		}else if(v[i] + v[j] > b){
-			j--;
-		}	
-	}
-	cout << count << endl;
-
+	int n, m, k; cin >> n >> m >> k;
+	string s; cin >> s; ll p;
+	vector<string> v(m);
+	for(int i = 0; i < m; ++i) cin >> v[i];	
+	cin >> p;
+	cout << endl;
+	/*
+	 * a c
+	 * a d
+	 * b c
+	 * b d
+	 */
 }
 
 // cout << "Case #" << t << ": ";
