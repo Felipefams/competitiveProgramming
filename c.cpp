@@ -29,31 +29,20 @@ const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 #define sc second
 bool prime(ll a) { if (a==1) return 0; for (int i=2;i*i<=a;++i) if (a%i==0) return 0; return 1; }
 
-ll f(ll k){
-	return (k*(3*k + 1))/2;
-}
 
 void solve(){
-	ll k; cin >> k;
-	ll root = sqrt(k);
-	ll ans = 0;
-	ll i = root;
-	for(ll i = root; i > 0; i--){
-		if(f(i) <= k){
-			ans = i;
-			break;
-		}
-	}
+	int a, b, c; cin >> a >> b >> c;
+	int m = b*1000;
+	int k = a*c;
+	int ans = 0;
+	if(k <= m) ans = m/1000;
+	else ans = b * ceil((double) k/m);
 	cout << ans << endl;
 }
 
 // cout << "Case #" << t << ": ";
 int main(){
 	fast_io;
-	int t = 0;
-	cin >> t;
-	while(t--){
-		solve();
-	}
+	solve();
 	return (0);
 }

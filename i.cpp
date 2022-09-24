@@ -29,31 +29,25 @@ const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 #define sc second
 bool prime(ll a) { if (a==1) return 0; for (int i=2;i*i<=a;++i) if (a%i==0) return 0; return 1; }
 
-ll f(ll k){
-	return (k*(3*k + 1))/2;
-}
 
 void solve(){
-	ll k; cin >> k;
-	ll root = sqrt(k);
-	ll ans = 0;
-	ll i = root;
-	for(ll i = root; i > 0; i--){
-		if(f(i) <= k){
-			ans = i;
-			break;
-		}
+	int n; cin >> n;
+	ll l, r; cin >> l >> r;
+	string s = "";
+	string tmp = to_string(l);
+	const int size = tmp.size();
+	int x = r/size;
+	while(s.size() < r){
+		auto k = to_string(x);
+		s.append(k);
+		x--;
 	}
-	cout << ans << endl;
+	cout << s << endl;
 }
 
 // cout << "Case #" << t << ": ";
 int main(){
 	fast_io;
-	int t = 0;
-	cin >> t;
-	while(t--){
-		solve();
-	}
+	solve();
 	return (0);
 }
