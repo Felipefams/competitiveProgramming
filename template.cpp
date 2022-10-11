@@ -27,32 +27,18 @@ typedef vector<int> vi;
 typedef pair<int,int> pii;
 bool prime(ll a) { if (a==1) return 0; for (int i=2;i*i<=a;++i) if (a%i==0) return 0; return 1; }
 
-struct Node{
-	int data;
-	Node *left;
-	Node *right;
-};
-typedef Node* ref_node;
 
-class bst{
-	public:
-		ref_node root;
-	private:
-		void insert(ref_node n){
-			ref_node i = this.root;
-			while(i != null){
-				if(i.next = null)
-					i.next = n;
-
-			}
-		}
-};
+void solve(){
+	//solution
+}
 
 // cout << "Case #" << t << ": ";
 int main(){
 	fast_io;
+	int t = 0;
+	cin >> t;
+	while(t--){
 
+	}
 	return (0);
 }
-
-
