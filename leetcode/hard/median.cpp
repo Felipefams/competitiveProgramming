@@ -1,3 +1,4 @@
+//https://leetcode.com/problems/median-of-two-sorted-arrays/description/
 #include <bits/stdc++.h>
 using namespace std;
 //vrum vrum
@@ -29,13 +30,49 @@ bool prime(ll a) { if (a==1) return 0; for (int i=2;i*i<=a;++i) if (a%i==0) retu
 
 class Solution {
 public:
-    double findMedianSortedArrays(vector<int>& y, vector<int>& x) {
-		ll k = y.size() + x.size();
-		ll f = k/2;
-		vector<int> v;
-
+	double findMedianSortedArrays(vector<int>& x, vector<int>& y) {
+        int n = x.size() + y.size();
+        vector<int> v(n);
+        int p1 = 0, p2 = 0;
+		int i = 0;
+		while(p1 < x.size() && p2 < y.size()){
+			if(x[p1] <= y[p2]){
+				v[i] = x[p1];
+				p1++;
+			}else{
+				v[i] = y[p2];
+				p2++;
+			}
+			++i;
+		}
+		if(p1 >= x.size() && p2 < y.size()){
+			while(p2 < y.size()){
+				v[i] = y[p2++];
+				i++;
+			}
+		}else if(p2 >= y.size() && p1 < x.size()){
+			while(p1 < x.size()){
+				v[i] = x[p1++];
+				i++;
+			}
+		}
+		double ans = 0.0;
+		int f = n/2;
+		if(n == 2){
+			ans = (double)(v[0] + v[1])/2;
+		}else if(n == 1){
+			ans = (double) v[0]; 
+		}else if(n % 2 == 0){
+			f = n/2;
+			ans = (double)(v[f-1]+v[f])/2;
+		}else{
+			ans = v[f];
+		}
+//		for(auto &z : v) cout << z << " ";
+		
+		cout << endl;
 		return ans;
-	}
+    }
 };
 
 // cout << "Case #" << t << ": ";
