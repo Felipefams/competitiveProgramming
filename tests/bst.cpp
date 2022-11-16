@@ -25,8 +25,8 @@ typedef long long ll;
 typedef long double ld;
 typedef vector<int> vi;
 typedef pair<int,int> pii;
-bool prime(ll a) { if (a==1) return 0; for (int i=2;i*i<=a;++i) if (a%i==0) return 0; return 1; }
 
+#define null NULL
 struct Node{
 	int data;
 	Node *left;
@@ -38,20 +38,24 @@ class bst{
 	public:
 		ref_node root;
 	private:
-		void insert(ref_node n){
-			ref_node i = this.root;
+		void insert(int data){
+			ref_node n; n->data = data;
+			ref_node i = this->root;
 			while(i != null){
-				if(i.next = null)
-					i.next = n;
-
+				if(n->data <= i->data)i = i->left;
+				else i = i->right;	
 			}
+			i = n;
 		}
 };
 
 // cout << "Case #" << t << ": ";
 int main(){
 	fast_io;
-
+	bst *b = new bst();
+	ref_node n = new Node();
+	n->data = 1;
+	b->insert(n);
 	return (0);
 }
 
