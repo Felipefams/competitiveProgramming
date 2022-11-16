@@ -42,7 +42,7 @@ int ml(string &a, string &b){
 	for(int i = 1; i < n; ++i){
 		for(int j = 1; j < m; ++j){
 			int k = min({v[i][j-1], v[i-1][j], v[i-1][j-1]});
-			if(a[i-1] == b[j-1]) v[i][j] = k;
+			if(a[i-1] == b[j-1]) v[i][j] = v[i-1][j-1];//k;
 			else v[i][j] = k+1;
 		}
 	}
