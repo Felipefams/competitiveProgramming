@@ -33,17 +33,22 @@ std::ostream & operator << (std::ostream &os ,std::vector<T> &v){
 	return os;
 }
 
-void solve(){
-	//solution
+ll mpow(ll a, ll b){
+	if(b == 0) return 1;
+	const ll old = a;
+	ll count = b;
+	while(count > 1){
+		a = a * old % MOD;
+		count--;
+	}
+	return a % MOD;
 }
 
 // cout << "Case #" << t << ": ";
 int main(){
 	fast_io;
-	int t = 0;
+	ll t;
 	cin >> t;
-	while(t--){
-
-	}
+	cout << mpow(2,t) << endl; //pow(2, t) % MOD << endl;
 	return (0);
 }
