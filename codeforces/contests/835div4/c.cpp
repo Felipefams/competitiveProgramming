@@ -33,42 +33,33 @@ std::ostream & operator << (std::ostream &os ,std::vector<T> &v){
 	return os;
 }
 
+
+
 void solve(){
-	string s; cin >> s;
-	string ans = "";
-	vector<int> mp(26, 0);
-	//int mp[26];
-	for(int i = 0; i < s.size(); ++i){
-		mp[s[i] - 'A']++;
-	}
-	int count = 0;
-	for(int i = 0; i < 26; ++i){
-		int k = mp[i];
-		if(mp[i] == 1){
-			count++;
-			continue;
-		}	
-		while(mp[i] > k/2){
-			ans += 'A'+ i;
-			mp[i]--;
+	ll n; cin >> n;
+	vector<ll> v(n);
+	for(int i = 0; i < n; ++i) cin >> v[i];
+	vector<ll> ans = v;
+	sort(v.begin(), v.end());
+	ll m1 = v[n-1];
+	ll m2 = v[n-2];
+	for(int i = 0; i < n; ++i){
+		if(ans[i] == m1){
+			ans[i] -= m2;
+		}else{
+			ans[i] -= m1;
 		}
 	}
-	if(count > 1){
-		cout << "NO SOLUTION" << endl;
-		return;
-	}
-	for(int i = 25; i >= 0; --i){
-		while(mp[i] > 0){
-			ans += 'A' + i; 
-			mp[i]--;
-		}
-	}
-	cout << ans << endl;
+	cout << ans;
 }
 
 // cout << "Case #" << t << ": ";
 int main(){
 	fast_io;
-	solve();
+	int t = 0;
+	cin >> t;
+	while(t--){
+		solve();
+	}
 	return (0);
 }

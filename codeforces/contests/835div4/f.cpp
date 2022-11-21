@@ -34,41 +34,29 @@ std::ostream & operator << (std::ostream &os ,std::vector<T> &v){
 }
 
 void solve(){
-	string s; cin >> s;
-	string ans = "";
-	vector<int> mp(26, 0);
-	//int mp[26];
-	for(int i = 0; i < s.size(); ++i){
-		mp[s[i] - 'A']++;
+	ll n,c,d; cin >> n >> c >> d;
+	priority_queue<ll> pq;
+	priority_queue<ll> tmp;
+	for(int i = 0; i < n; ++i){
+		ll x; cin >> x;
+		pq.push(x);
 	}
-	int count = 0;
-	for(int i = 0; i < 26; ++i){
-		int k = mp[i];
-		if(mp[i] == 1){
-			count++;
-			continue;
-		}	
-		while(mp[i] > k/2){
-			ans += 'A'+ i;
-			mp[i]--;
-		}
-	}
-	if(count > 1){
-		cout << "NO SOLUTION" << endl;
+	if(pq.top() > c){
+		cout << "Infinity" << endl;
 		return;
 	}
-	for(int i = 25; i >= 0; --i){
-		while(mp[i] > 0){
-			ans += 'A' + i; 
-			mp[i]--;
-		}
-	}
-	cout << ans << endl;
+	const ll k = d - (k+1);
+
+
 }
 
 // cout << "Case #" << t << ": ";
 int main(){
 	fast_io;
-	solve();
+	int t = 0;
+	cin >> t;
+	while(t--){
+		solve();
+	}
 	return (0);
 }

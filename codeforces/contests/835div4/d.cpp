@@ -26,49 +26,42 @@ typedef long double ld;
 typedef vector<int> vi;
 typedef pair<int,int> pii;
 bool prime(ll a) { if (a==1) return 0; for (int i=2;i*i<=a;++i) if (a%i==0) return 0; return 1; }
-template<typename T>
-std::ostream & operator << (std::ostream &os ,std::vector<T> &v){
-	for(auto& x : v) os << x << " ";	
-	os << endl;
-	return os;
+
+bool check(vector<int> &v, int j){
+	if(j == 0 || j == v.size() - 1) return true;
+	else if(v[j-1] < v[j] || v[j+1] < v[j]) return false;
+	return true;
 }
 
 void solve(){
-	string s; cin >> s;
-	string ans = "";
-	vector<int> mp(26, 0);
-	//int mp[26];
-	for(int i = 0; i < s.size(); ++i){
-		mp[s[i] - 'A']++;
+	int n; cin >> n;
+	vector<int> v(n);
+	for(int i = 0; i < n; ++i) cin >> v[i];
+	int min = v[0];
+	for(int i = 1; i < n; ++i){
+		if(v[i] < min){
+			min = v[i];
+		}
 	}
 	int count = 0;
-	for(int i = 0; i < 26; ++i){
-		int k = mp[i];
-		if(mp[i] == 1){
-			count++;
-			continue;
-		}	
-		while(mp[i] > k/2){
-			ans += 'A'+ i;
-			mp[i]--;
-		}
+	for(int i = 0; i < n; ++i){
+		if(!check(v, i)) continue;
+		else count++;
 	}
-	if(count > 1){
-		cout << "NO SOLUTION" << endl;
-		return;
+	if(count != 1){
+		cout << "NO" << endl;
+	}else{
+		cout << "YES" << endl;
 	}
-	for(int i = 25; i >= 0; --i){
-		while(mp[i] > 0){
-			ans += 'A' + i; 
-			mp[i]--;
-		}
-	}
-	cout << ans << endl;
 }
 
 // cout << "Case #" << t << ": ";
 int main(){
 	fast_io;
-	solve();
+	int t = 0;
+	cin >> t;
+	while(t--){
+		solve();
+	}
 	return (0);
 }

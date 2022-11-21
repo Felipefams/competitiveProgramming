@@ -33,42 +33,44 @@ std::ostream & operator << (std::ostream &os ,std::vector<T> &v){
 	return os;
 }
 
-void solve(){
-	string s; cin >> s;
-	string ans = "";
-	vector<int> mp(26, 0);
-	//int mp[26];
-	for(int i = 0; i < s.size(); ++i){
-		mp[s[i] - 'A']++;
-	}
-	int count = 0;
-	for(int i = 0; i < 26; ++i){
-		int k = mp[i];
-		if(mp[i] == 1){
-			count++;
-			continue;
-		}	
-		while(mp[i] > k/2){
-			ans += 'A'+ i;
-			mp[i]--;
-		}
-	}
-	if(count > 1){
-		cout << "NO SOLUTION" << endl;
-		return;
-	}
-	for(int i = 25; i >= 0; --i){
-		while(mp[i] > 0){
-			ans += 'A' + i; 
-			mp[i]--;
-		}
-	}
-	cout << ans << endl;
+ll cnt (vector<int> &a){
+    int n = a.size();
+    ll ans = 0, x = 0;
+    for(int i = 0; i < n; ++i){
+        if(a[i] == 0) ans += x; 
+        else x++;
+    }
+    return ans;
 }
 
-// cout << "Case #" << t << ": ";
+void solve(){
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    int lt = -1, rt = -1;
+    for (int i = 0; i < n; i++){
+        cin >> v[i];
+        if (v[i] == 0 && lt == -1) lt = i; 
+        else if (v[i] == 1) rt = i; 
+    }
+    ll ans = cnt(v);
+    if (lt != -1){
+        auto b = v;
+        b[lt] = 1;
+        ans = max(ans, cnt(b));
+    }if (rt != -1){
+        auto b = v;
+        b[rt] = 0;
+        ans = max(ans, cnt(b));
+    }
+    cout << ans << '\n';
+}
+
 int main(){
 	fast_io;
-	solve();
-	return (0);
+    int t; cin >> t;
+    while (t--){
+        solve();
+    }
+    return 0;
 }
