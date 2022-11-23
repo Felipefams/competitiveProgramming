@@ -33,19 +33,29 @@ std::ostream & operator << (std::ostream &os ,std::vector<T> &v){
 	return os;
 }
 
+bool isPalindrome(string &s){
+	for(int i = 0, j = s.size() - 1; i != j; ++i, --j){
+		if(s[i] != s[j]) return false;
+	}
+	return true;
+}
+
 void solve(){
 	string s; cin >> s;
 	string ans = "";
 	vector<int> mp(26, 0);
 	//int mp[26];
+	sort(mp.begin(), mp.end());
 	for(int i = 0; i < s.size(); ++i){
 		mp[s[i] - 'A']++;
 	}
 	int count = 0;
+	int ptr = 0;
 	for(int i = 0; i < 26; ++i){
-		int k = mp[i];
+const		int k = mp[i];
 		if(mp[i] == 1){
-			count++;
+	//		count++;
+			ptr = i;
 			continue;
 		}	
 		while(mp[i] > k/2){
@@ -53,16 +63,26 @@ void solve(){
 			mp[i]--;
 		}
 	}
+	/*
 	if(count > 1){
 		cout << "NO SOLUTION" << endl;
 		return;
 	}
+	*/
+	ans += 'A' + ptr;
+	mp[ptr]--;
 	for(int i = 25; i >= 0; --i){
 		while(mp[i] > 0){
-			ans += 'A' + i; 
+			ans += 'A'+ i;
 			mp[i]--;
 		}
 	}
+	/*
+	if(isPalindrome(ans)){
+		cout << ans << endl;
+	}else{
+		cout << "NO SOLUTION" << endl;
+	}*/
 	cout << ans << endl;
 }
 
