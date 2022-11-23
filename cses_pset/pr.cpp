@@ -34,7 +34,7 @@ std::ostream & operator << (std::ostream &os ,std::vector<T> &v){
 }
 
 bool isPalindrome(string &s){
-	for(int i = 0, j = s.size() - 1; i != j; ++i, --j){
+	for(int i = 0, j = s.size() - 1; i <= j; ++i, --j){
 		if(s[i] != s[j]) return false;
 	}
 	return true;
@@ -42,48 +42,51 @@ bool isPalindrome(string &s){
 
 void solve(){
 	string s; cin >> s;
-	string ans = "";
 	vector<int> mp(26, 0);
-	//int mp[26];
-	sort(mp.begin(), mp.end());
+	vector<char> vc(s.size());
+	vector<char> vc2(s.size());
 	for(int i = 0; i < s.size(); ++i){
 		mp[s[i] - 'A']++;
-	}
-	int count = 0;
-	int ptr = 0;
+	}	
+	vector<int> cp = mp;
+	int ptr = 0;	
+	int p1 = 0;
+	int p2 = vc.size() - 1;
+	int p3 = 0, p4 = vc.size() - 1;
 	for(int i = 0; i < 26; ++i){
-const		int k = mp[i];
-		if(mp[i] == 1){
-	//		count++;
-			ptr = i;
-			continue;
-		}	
-		while(mp[i] > k/2){
-			ans += 'A'+ i;
-			mp[i]--;
-		}
-	}
-	/*
-	if(count > 1){
-		cout << "NO SOLUTION" << endl;
-		return;
-	}
-	*/
-	ans += 'A' + ptr;
-	mp[ptr]--;
-	for(int i = 25; i >= 0; --i){
 		while(mp[i] > 0){
-			ans += 'A'+ i;
+			if(mp[i] % 2 == 0){
+				vc[p1++] = 'A' + i;
+			}
+			else{
+				vc[p2--] = 'A' + i;
+			}	
 			mp[i]--;
 		}
 	}
-	/*
+	for(int i = 25; i >= 0; --i){
+		while(cp[i] > 0){
+			if(cp[i] % 2 == 0){
+				vc2[p3++] = 'A' + i;
+			}
+			else{
+				vc2[p4--] = 'A' + i;
+			}	
+			cp[i]--;
+		}
+	}
+	string ans(vc.begin(), vc.end());
+	string ans2(vc2.begin(), vc2.end());
+	//cout << ptr;
 	if(isPalindrome(ans)){
 		cout << ans << endl;
 	}else{
-		cout << "NO SOLUTION" << endl;
-	}*/
-	cout << ans << endl;
+		if(isPalindrome(ans2))
+			cout << ans2 << endl;
+		else
+			cout << "NO SOLUTION" << endl;
+	}
+	//cout << vc;
 }
 
 // cout << "Case #" << t << ": ";
