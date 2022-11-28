@@ -33,15 +33,22 @@ typedef pair<int,int> pii;
 bool prime(ll a) { if (a==1) return 0; for (int i=2;i*i<=a;++i) if (a%i==0) return 0; return 1; }
 
 
-
 // cout << "Case #" << t << ": ";
 int main(){fast_io;
 
 	ofstream fout ("pails.out");
     ifstream fin ("pails.in");
-    int a, b, c;
-    cin >> a >> b >> c;
-	cout << max(op1(a,b,c), op2(a,b,c));
+    int a, b, c, ans = 0;
+    fin >> a >> b >> c;
+	for(int i = 0; i < 1001; ++i){
+		if(a*i > c) break;
+		for(int j = 0; j < 1001; ++j){
+			int n = a*i + b*j;
+			if(n > c) break;
+			ans = max(ans, n);
+		}
+	}
+	fout << ans;
 	return (0);
 }
 
