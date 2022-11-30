@@ -40,15 +40,23 @@ void solve(){
 int main(){fast_io;
 	ofstream fout ("diamond.out");
     ifstream fin ("diamond.in");
-	int n, k; cin >> n >> k;
+	int n, k; fin >> n >> k;
 	vector<int> v(n);
 	int ans = 0;
-	for(int i = 0; i < n; ++i) cin >> v[i];
+	for(int i = 0; i < n; ++i) fin >> v[i];
+	sort(v.begin(), v.end());
 	for(int i = 0; i < n; ++i){
+		int count = 1;
 		for(int j = i+1; j < n; ++j){
-
+			if(abs(v[j] - v[i]) <= k){
+				count++;
+			}else{
+				if(ans < count)
+					ans = count;
+				count = 1;
+			} 
 		}
 	}
-	cout << ans;
+	fout << ans;
 	return (0);
 }
