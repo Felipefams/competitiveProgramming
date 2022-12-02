@@ -40,8 +40,8 @@ void solve(){
 // cout << "Case #" << t << ": ";
 int main(){fast_io;
 
-	ofstream fout ("test.out");
     ifstream fin ("test.in");
+	ofstream fout ("test.out");
     int a, b;
     fin >> a >> b;
     fout << a+b << endl;
