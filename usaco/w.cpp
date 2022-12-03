@@ -1,8 +1,3 @@
-/*
-ID: augusto15
-TASK: test
-LANG: C++                 
-*/
 #include <bits/stdc++.h>
 using namespace std;
 //vrum vrum
