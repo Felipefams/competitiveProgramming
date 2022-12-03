@@ -32,10 +32,11 @@ std::ostream & operator << (std::ostream &os ,std::vector<T> &v){
 	os << endl;
 	return os;
 }
-unordered_set<string> st;
+set<string> st;
 void solve(int n, string s){
-	if(s.size()== n)
+	if(s.size()== n){
 		cout << s << endl;
+//		st.insert(s);
 		return;
 	}
 	solve(n, s + "0");
@@ -47,5 +48,8 @@ int main(){
 	fast_io;
 	int n; cin >> n;
 	solve(n, "");
+	for(auto& x : st){
+		cout << x << endl;
+	}
 	return (0);
 }
