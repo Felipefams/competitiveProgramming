@@ -1,8 +1,3 @@
-/*
-ID: augusto15
-TASK: test
-LANG: C++                 
-*/
 #include <bits/stdc++.h>
 using namespace std;
 //vrum vrum
@@ -31,7 +26,12 @@ typedef long double ld;
 typedef vector<int> vi;
 typedef pair<int,int> pii;
 bool prime(ll a) { if (a==1) return 0; for (int i=2;i*i<=a;++i) if (a%i==0) return 0; return 1; }
-
+template<typename T>
+std::ostream & operator << (std::ostream &os ,std::vector<T> &v){
+	for(auto& x : v) os << x << " ";	
+	os << endl;
+	return os;
+}
 
 void solve(){
 	//solution
@@ -39,11 +39,8 @@ void solve(){
 
 // cout << "Case #" << t << ": ";
 int main(){fast_io;
-
     ifstream fin ("test.in");
-	ofstream fout ("test.out");
-    int a, b;
-    fin >> a >> b;
-    fout << a+b << endl;
+	ofstream fout ("test.out");	
+
 	return (0);
 }
