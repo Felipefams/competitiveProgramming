@@ -32,6 +32,7 @@ std::ostream & operator << (std::ostream &os ,std::vector<T> &v){
 	os << endl;
 	return os;
 }
+//wrong!!!
 set<string> st;
 void solve(int n, string s){
 	if(s.size()== n){
@@ -43,13 +44,17 @@ void solve(int n, string s){
 	solve(n, s + "1");
 }
 
+//int gray(int n) { return n ^ (n >> 1); }
+
 // cout << "Case #" << t << ": ";
 int main(){
 	fast_io;
 	int n; cin >> n;
+	cout << gray(n) << endl;
+	/*
 	solve(n, "");
 	for(auto& x : st){
 		cout << x << endl;
-	}
+	}*/
 	return (0);
 }
