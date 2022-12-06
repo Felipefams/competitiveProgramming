@@ -37,9 +37,53 @@ std::ostream & operator << (std::ostream &os ,std::vector<T> &v){
 	os << endl;
 	return os;
 }
+
 ifstream fin ("guess.in");
 ofstream fout ("guess.out");	
+template <typename T>
+set<T> intersection(const set<T>& s1, const set<T>& s2) {
+	set<T> ret;
+	for (const T& i : s1) {
+		if (s2.count(i)) {
+			ret.insert(i);
+		}
+	}
+	return ret;
+}
 
+int main() {
+	int animal_num;
+	fin >> animal_num;
+	vector<set<string>> animals(animal_num);
+	for (int a = 0; a < animal_num; a++) {
+		string name;
+		int attr_num;
+		fin >> name >> attr_num;
+		for (int ai = 0; ai < attr_num; ai++) {
+			string attr;
+			fin >> attr;
+			animals[a].insert(attr);
+		}
+	}
+
+	int max_yes = 0;
+	for (int a1 = 0; a1 < animal_num; a1++) {
+		for (int a2 = a1 + 1; a2 < animal_num; a2++) {
+			/*
+			 * If there's 2 animals that have a bunch of traits in common,
+			 * Elsie can ask about all those traits.
+			 * Then she can ask for the "defining" trait,
+			 * resutling in the # of common traits + 1 "yes"es.
+			 */
+			set<string> common = intersection(animals[a1], animals[a2]);
+			max_yes = max(max_yes, (int) common.size() + 1);
+		}
+	}
+
+	fout << max_yes << endl;
+}
+//old solution
+/*
 struct animal{
 	string name;
 	uset<string> food;
@@ -48,6 +92,7 @@ struct animal{
 auto cmp = [](const pair<string,int> &a, const pair<string,int> &b){
 	return a.second < b.second;
 };
+
 
 void solve(){
 	int n; cin >> n;
@@ -72,8 +117,9 @@ void solve(){
 	//cout << ans;
 }
 
+
 // cout << "Case #" << t << ": ";
 int main(){fast_io;
 	solve();
 	return (0);
-}
+}*/
