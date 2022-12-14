@@ -47,7 +47,6 @@ void computeLPSArray(string pat, vector<int> &lps){
 	int M = lps.size();
 
     lps[0] = 0; // lps[0] is always 0
-
     // the loop calculates lps[i] for i = 1 to M-1
     int i = 1;
     while (i < M) {

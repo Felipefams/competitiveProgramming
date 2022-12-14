@@ -46,6 +46,12 @@ int ml(string &a, string &b){
 			else v[i][j] = k+1;
 		}
 	}
+	for(auto &x : v){
+		for(auto &y : x){
+			cout << y << " ";
+		}
+		cout << endl;
+	}
 	return v[n-1][m-1];
 }
 
@@ -90,8 +96,8 @@ int minDistance(string word1, string word2) {
 int main(){
 	fast_io;
 	string s1, s2; cin >> s1 >> s2;
-	cout << levenshtein(s1, s2) << endl;
-//	cout << ml(s1, s2) << endl;
+//	cout << levenshtein(s1, s2) << endl;
+	cout << ml(s1, s2) << endl;
 //	cout << minDistance(s1, s2) << endl;
 	return (0);
 }
