@@ -47,6 +47,7 @@ bool isEqual(vector<int> &v, int offset){
 
 // it works, but not for this problem
 // here we can only operate over values who are side by side
+// and this solution operates between any values 
 void solve(){
 	int n; cin >> n;
 	vector<int> v(n);
