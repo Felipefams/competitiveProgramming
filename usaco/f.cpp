@@ -37,15 +37,14 @@ std::ostream & operator << (std::ostream &os ,std::vector<T> &v){
 	os << endl;
 	return os;
 }
-ifstream fin ("tracing.in");
-ofstream fout ("tracing.out");	
+ifstream fin ("paint.in");
+ofstream fout ("paint.out");	
 
 void solve(){
-	int n, t; cin >> n >> t;
-	string s; cin >> s;
-	for(int i = 0; i < t; ++i){
-		int time, x, y; cin >> time >> x >> y;	
-	}
+	int a, b, c ,d; fin >> a >> b >> c >> d;
+	int total = (b - a) + (d - c);
+	int intersection = max(0, min(b, d) - max(a, c));
+	fout << total - intersection << endl;
 }
 
 // cout << "Case #" << t << ": ";
