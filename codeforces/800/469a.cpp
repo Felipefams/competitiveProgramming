@@ -33,11 +33,18 @@ bool solve(){
 	int n; cin >> n;
 	vector<bool> b(n+1);
 	uset<int> v;
-	int x;
-	while(cin >> x){
-		b[x] = 1;
-		v.insert(x);
+	int x; cin >> x;
+	while(x--){
+		int k; cin >> k;
+		b[k] = 1;
+		v.insert(k);
 	}	
+	cin >> x;
+	while(x--){
+		int k; cin >> k;
+		b[k] = 1;
+		v.insert(k);
+	}
 //	for(auto &x : v) b[x] = 1;	
 	for(int i = 1; i <= n; ++i){
 		if(!b[i]) return false;	
