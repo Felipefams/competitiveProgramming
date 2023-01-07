@@ -1,3 +1,4 @@
+//wrong, maybe there's a problem on the website
 #include <bits/stdc++.h>
 using namespace std;
 //vrum vrum
@@ -38,7 +39,7 @@ bool solve(){
 		v.insert(x);
 	}	
 //	for(auto &x : v) b[x] = 1;	
-	for(int i = 1; i < n + 1; ++i){
+	for(int i = 1; i <= n; ++i){
 		if(!b[i]) return false;	
 	}
 	return true;
