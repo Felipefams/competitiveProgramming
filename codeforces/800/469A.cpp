@@ -1,6 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
+//vrum vrum
+#define fast_io ios_base::sync_with_stdio(0); cin.tie(0);
 //constants
+#define endl "\n"
 #define PI 3.1415926535897932384626433832795
 #define MOD 1000000007
 #define exp 1e9
@@ -10,8 +13,6 @@ using namespace std;
 #define sqr(a) (a)*(a)
 #define sz(x) ((int)x.size())
 #define watch(x) cout << (#x) << " is " << (x) << endl
-#define max3(a, b, c) max(a, max(b, c)) 
-#define min3(a, b, c) min(a, min(b, c)) 
 //utils
 #define umap unordered_map
 #define uset unordered_set
@@ -24,20 +25,28 @@ typedef long long ll;
 typedef long double ld;
 typedef vector<int> vi;
 typedef pair<int,int> pii;
-bool prime(ll a) { if (a==1) return 0; for (int i=2;i<=round(sqrt(a));++i) if (a%i==0) return 0; return 1; }
+bool prime(ll a) { if (a==1) return 0; for (int i=2;i*i<=a;++i) if (a%i==0) return 0; return 1; }
 
-void solve(){
-	//solution
+
+bool solve(){
+	int n; cin >> n;
+	vector<bool> b(n+1);
+	uset<int> v;
+	int x;
+	while(cin >> x){
+		b[x] = 1;
+		v.insert(x);
+	}	
+//	for(auto &x : v) b[x] = 1;	
+	for(int i = 1; i < n + 1; ++i){
+		if(!b[i]) return false;	
+	}
+	return true;
 }
 
-// cout << "Case #" << t << ": ";
 int main(){
-	ios_base::sync_with_stdio(0);
-	cin.tie(0);// cout.tie(0);
-	int t = 0;
-	cin >> t;
-	while(t--){
-
-	}
+	fast_io;
+	if(solve()) cout << "I become the guy.\n" << endl;
+	else cout << "Oh, my keyboard!\n" << endl;
 	return (0);
 }
