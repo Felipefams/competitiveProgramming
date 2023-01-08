@@ -41,9 +41,36 @@ std::ostream & operator << (std::ostream &os ,std::vector<T> &v){
 void solve(){
 	int n, k; cin >> n >> k;
 	string s; cin >> s;
-	string ans(n, '.');	
+	string ans(n, '.');
+	int posg = -k - 1;
+	int posh = -k - 1;
+	int count = 0;
+	for(int i = 0; i < n; ++i){
+		if(s[i] == 'G' && i - posg > k){
+			count++;
+			if(i + k >= n){
+				posg = i;
+				while(ans[posg] == 'H') posg--;
+			}else{
+				posg = i+k;
+			}
+			ans[posg] = 'G';
+		}
+		if(s[i] == 'H' && i - posh > k){
+			count++;
+			if(i + k >= n){
+				posh = i;
+				while(ans[posh] == 'G') posh--;
+			}else{
+				posh = i+k;
+			}
+			ans[posh] = 'H';
+		}
 
-	cout << ans << endl;
+	}
+	cout << count << endl;
+	cout << ans;
+	cout << endl;
 }
 
 // cout << "Case #" << t << ": ";
