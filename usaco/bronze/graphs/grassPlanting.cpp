@@ -37,15 +37,21 @@ std::ostream & operator << (std::ostream &os ,std::vector<T> &v){
 	os << endl;
 	return os;
 }
-
+ifstream fin ("planting.in");
+ofstream fout ("planting.out");	
 void solve(){
-	//solution
+	int n; cin >> n;
+	uset<pair<int, int>> st;
+	for(int i = 0; i < n-1; ++i){
+		pair<int,int> p;
+		int a, b; cin >> a >> b;
+		p = mk(a,b);
+	}
+
 }
 
 // cout << "Case #" << t << ": ";
 int main(){fast_io;
-    ifstream fin ("test.in");
-	ofstream fout ("test.out");	
 
 	return (0);
 }
