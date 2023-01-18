@@ -37,6 +37,8 @@ std::ostream & operator << (std::ostream &os ,std::vector<T> &v){
 	os << endl;
 	return os;
 }
+ifstream fin ("test.in");
+ofstream fout ("test.out");	
 
 void solve(){
 	//solution
@@ -44,8 +46,6 @@ void solve(){
 
 // cout << "Case #" << t << ": ";
 int main(){fast_io;
-    ifstream fin ("test.in");
-	ofstream fout ("test.out");	
 
 	return (0);
 }
