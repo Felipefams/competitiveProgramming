@@ -33,17 +33,55 @@ std::ostream & operator << (std::ostream &os ,std::vector<T> &v){
 	return os;
 }
 
+struct ListNode{
+	int val;
+	ListNode *next;
+	ListNode() : val(0), next(nullptr) {}
+	ListNode(int x) : val(x), next(nullptr) {}
+	ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
+#define null NULL
+
+ListNode* revList(ListNode* head){
+	ListNode* prev, *current, *next;
+	prev = null;
+	current = next = head;
+
+	while(current){
+		next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
+	}
+
+	return prev;
+}
 void solve(){
-	//solution
+	//list created
+	ListNode* head = new ListNode(1);
+	ListNode* tmp = head;
+	for(int i = 2; i <= 5; ++i){ 
+		tmp->next = new ListNode(i);
+		tmp = tmp->next;
+	}
+	//print list
+	for(ListNode* i = head; i != null; i = i->next){
+		cout << i->val << " ";
+	}
+	cout << endl;
+
+	head = revList(head);
+	//print list
+	for(ListNode* i = head; i != null; i = i->next){
+		cout << i->val << " ";
+	}
+	cout << endl;
 }
 
 // cout << "Case #" << t << ": ";
 int main(){
 	fast_io;
-	int t = 0;
-	cin >> t;
-	while(t--){
-
-	}
+	solve();
 	return (0);
 }
