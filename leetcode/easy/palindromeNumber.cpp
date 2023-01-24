@@ -1,14 +1,15 @@
+//https://leetcode.com/problems/palindrome-number/solutions/
 class Solution {
 public:
     bool isPalindrome(int x) {
         if(x < 0) return false;
-        int i = x;
+        int i = 0;
         stack<int> st;
         vector<int> v;
-        while(i >= 10){
-            i = i % 10;
-            st.push(x - i*10);
-            if(i < 10) st.push(i);
+        while(x > 0){
+            i = x % 10;
+            st.push(i);
+            x /= 10;
         }
         while(!st.empty()){
             v.push_back(st.top());
@@ -19,4 +20,4 @@ public:
         }
         return true;
     }
-};
+};;
