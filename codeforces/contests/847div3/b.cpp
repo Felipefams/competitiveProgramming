@@ -34,7 +34,22 @@ std::ostream & operator << (std::ostream &os ,std::vector<T> &v){
 }
 
 void solve(){
-	//solution
+	int n, s, r; cin >> n >> s >> r;
+	vector<int> v(n);
+	v[0] = s-r;
+	int sum = v[0];
+	for(int i = 1; i < n; ++i){
+		v[i] = 6; 
+		sum += 6;
+	}
+	for(int i = n-1; i >= 1; --i){
+		while(sum > s){
+			if(v[i] == 1) break;	
+			v[i]--;
+			sum--;
+		}
+	}
+	cout << v;
 }
 
 // cout << "Case #" << t << ": ";
@@ -43,7 +58,7 @@ int main(){
 	int t = 0;
 	cin >> t;
 	while(t--){
-
+		solve();
 	}
 	return (0);
 }

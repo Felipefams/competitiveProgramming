@@ -4,7 +4,7 @@ using namespace std;
 #define fast_io ios_base::sync_with_stdio(0); cin.tie(0);
 //constants
 #define endl "\n"
-#define PI 3.1415926535897932384626433832795
+//#define PI 3.1415926535897932384626433832795
 #define MOD 1000000007
 #define exp 1e9
 #define imax INT_MAX
@@ -33,8 +33,17 @@ std::ostream & operator << (std::ostream &os ,std::vector<T> &v){
 	return os;
 }
 
+const string pi = "314159265358979323846264338327";
+
 void solve(){
-	//solution
+	string s; cin >> s;
+	int n = s.size();
+	int ans = 0;
+	for(int i = 0; i < n; ++i){
+		if(s[i] == pi[i]) ans++;
+		else break;
+	}
+	cout << ans << endl;
 }
 
 // cout << "Case #" << t << ": ";
@@ -43,7 +52,7 @@ int main(){
 	int t = 0;
 	cin >> t;
 	while(t--){
-
+		solve();
 	}
 	return (0);
 }
