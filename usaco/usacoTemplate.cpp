@@ -37,15 +37,26 @@ std::ostream & operator << (std::ostream &os ,std::vector<T> &v){
 	os << endl;
 	return os;
 }
-ifstream fin ("test.in");
-ofstream fout ("test.out");	
+// FastIO: see General -> Fast Input and Output
+void setIO(string name = ""){
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
+	if (!name.empty()) {
+		freopen((name + ".in").c_str(), "r", stdin);
+		freopen((name + ".out").c_str(), "w", stdout);
+	}
+}
+//ifstream fin ("test.in");
+//ofstream fout ("test.out");	
 
 void solve(){
 	//solution
 }
 
 // cout << "Case #" << t << ": ";
-int main(){fast_io;
+int main(){
+	fast_io;
+	setIO("test");
 
 	return (0);
 }
