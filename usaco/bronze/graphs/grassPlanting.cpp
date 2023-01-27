@@ -39,19 +39,26 @@ std::ostream & operator << (std::ostream &os ,std::vector<T> &v){
 }
 ifstream fin ("planting.in");
 ofstream fout ("planting.out");	
-void solve(){
-	int n; cin >> n;
-	uset<pair<int, int>> st;
-	for(int i = 0; i < n-1; ++i){
-		pair<int,int> p;
-		int a, b; cin >> a >> b;
-		p = mk(a,b);
-	}
 
+void solve(){
+	int n; fin >> n;
+	vector<uset<int>> v(n+1);
+	for(int i = 0; i < n-1; ++i){
+		int a, b; fin >> a >> b;
+		v[a].insert(b);
+		v[b].insert(a);
+	}
+	int ans = 0;
+	int m = 0;
+	for(int i = 1; i < v.size(); ++i){
+		m = max(m, (int) v[i].size());
+	}
+	ans = m;
+	fout << ans +1 << endl;
 }
 
 // cout << "Case #" << t << ": ";
 int main(){fast_io;
-
+	solve();
 	return (0);
 }
