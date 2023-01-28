@@ -36,14 +36,26 @@ std::ostream & operator << (std::ostream &os ,std::vector<T> &v){
 void solve(){
 	//solution
 }
+ofstream fout ("hack.out");	
 
 // cout << "Case #" << t << ": ";
 int main(){
 	fast_io;
-	int t = 0;
-	cin >> t;
-	while(t--){
-
+	ll k = 1;
+	fout << k << endl;
+	const int mv = 2e5;
+	int i = 1;
+	ll x = 107897;
+	while(k--){
+		int tmp = mv;
+		fout << mv << endl;
+		while(tmp--){
+			if(x*i >= 1e9) i = 1;
+			fout << x*i << " ";
+			++i;
+		}
+		fout << endl;	
 	}
 	return (0);
 }
+
