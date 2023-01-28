@@ -36,11 +36,12 @@ std::ostream & operator << (std::ostream &os ,std::vector<T> &v){
 void solve(){
 	int n, s, r; cin >> n >> s >> r;
 	vector<int> v(n);
-	v[0] = s-r;
+	const int mx = s-r;
+	v[0] = mx;
 	int sum = v[0];
 	for(int i = 1; i < n; ++i){
-		v[i] = 6; 
-		sum += 6;
+		v[i] = mx; 
+		sum += mx;
 	}
 	for(int i = n-1; i >= 1; --i){
 		while(sum > s){
