@@ -33,57 +33,45 @@ std::ostream & operator << (std::ostream &os ,std::vector<T> &v){
 	return os;
 }
 
-int mergeSet(vector<uset<ll>> &v){
-	vector<uset<ll>> nv;
-	sort(v.begin(), v.end());
-		for(int j = i; j < v.size(); ++j){
-			int b = false;
-			for(auto &x : v[i]){
-				if(v[j].count(x)) b = true;
+void solve(){
+	int n; cin >> n;
+//	vector<ll> v(n);
+	multiset<ll> m;
+	for(int i = 0; i < n; ++i){
+		ll k; cin >> k;
+		m.insert(k);
+	}	
+	multiset<ll>::iterator it = m.begin();
+	vector<set<ll>> vs;
+//	it = next(it, 1); // it = 1, j = 0;
+	while(m.size() > 0){// || it != m.end()){
+		set<ll> st;
+		for(auto &x : m){
+			cout << x << " "; 
+		}
+		cout << endl;
+		while(it != m.end()){
+			if(st.size() == 0 || st.count((*it) - 1) > 0){
+				int k = *it;
+				st.insert(k);
+				it++;
+				m.erase(m.find(k));
+			}else{ 
+				m.erase(m.find(*it));
+				break;
 			}
-			
 		}
-	for(int i = 0, j = v.size() - 1; i < v.size() || j >= 0 || j != i;){
-		bool b = false;
-		for(auto &x : v[i]){
-			if(v[j].count(x)) b= true;
-		}
-		if(!b){	
-				uset<ll> st;
-				set_union(v[i].begin(), v[i].end(),
-						v[j].begin(), v[j].end(),
-						inserter(st, st.begin()));
-				nv.pb(st);
-				j--;
-				i++;
-		}
+		vs.pb(st);
+		it = m.begin();
 	}
-	for(auto &x : nv){
-		for(auto &y : x){
-			cout << y << " ";
+	for(auto &x : vs){
+		for(auto &e : x){
+			cout << e << " "; 
 		}
 		cout << endl;
 	}
-	return nv.size();
-}
-
-void solve(){
-	int n; cin >> n;
-	vector<ll> v(n);
-	vector<uset<ll>> vl;
-	for(int i = 0; i < n; ++i) cin >> v[i];
-	sort(v.begin(), v.end());
-	int ans = 1;
-	for(int i = 1; i < n; ++i){
-		uset<ll> tmp;
-		while(v[i] != v[i-1]){
-			tmp.insert(v[i-1]);
-			i++;
-		}
-		vl.pb(tmp);
-	}
-	ans = mergeSet(vl);
-	cout << ans << endl;	
+//	cout << vs.size() + m.size() << endl;
+	
 }
 
 // cout << "Case #" << t << ": ";
