@@ -1,3 +1,4 @@
+//https://codeforces.com/contest/1790/problem/D
 #include <bits/stdc++.h>
 using namespace std;
 //vrum vrum
@@ -35,43 +36,23 @@ std::ostream & operator << (std::ostream &os ,std::vector<T> &v){
 
 void solve(){
 	int n; cin >> n;
-//	vector<ll> v(n);
-	multiset<ll> m;
+	vector<int> v(n);
+	map<int, int> cnt;
+	set<int> st;
 	for(int i = 0; i < n; ++i){
-		ll k; cin >> k;
-		m.insert(k);
-	}	
-	multiset<ll>::iterator it = m.begin();
-	vector<set<ll>> vs;
-//	it = next(it, 1); // it = 1, j = 0;
-	while(m.size() > 0){// || it != m.end()){
-		set<ll> st;
-		for(auto &x : m){
-			cout << x << " "; 
-		}
-		cout << endl;
-		while(it != m.end()){
-			if(st.size() == 0 || st.count((*it) - 1) > 0){
-				int k = *it;
-				st.insert(k);
-				it++;
-				m.erase(m.find(k));
-			}else{ 
-				m.erase(m.find(*it));
-				break;
-			}
-		}
-		vs.pb(st);
-		it = m.begin();
+		cin >> v[i];
+		cnt[v[i]]++;
+		st.insert(v[i]);
+		st.insert(v[i] + 1);	
 	}
-	for(auto &x : vs){
-		for(auto &e : x){
-			cout << e << " "; 
-		}
-		cout << endl;
+	int last = 0;
+	int ans= 0 ;
+	for(auto &x : st){
+		int c = cnt[x];
+		ans += max(0, c - last);
+		last = c;
 	}
-//	cout << vs.size() + m.size() << endl;
-	
+	cout << ans << endl;
 }
 
 // cout << "Case #" << t << ": ";
@@ -84,3 +65,18 @@ int main(){
 	}
 	return (0);
 }
+/*
+other solution:
+void solve(){
+	int n; cin >> n;
+	vector<int> v(n);
+	for(auto &i : v) cin >> i;
+	sort(v.begin(), v.end());
+	multiset<int> t;
+	for(auto &i : v){
+		if(t.find(i-1) != t.end()) t.erase(t.find(i-1));	
+		t.insert(i);
+	}
+	cout << t.size() << endl;
+}
+*/
