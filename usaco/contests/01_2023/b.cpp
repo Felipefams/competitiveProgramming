@@ -37,26 +37,47 @@ std::ostream & operator << (std::ostream &os ,std::vector<T> &v){
 	os << endl;
 	return os;
 }
-// FastIO: see General -> Fast Input and Output
-void setIO(string name = ""){
-	ios_base::sync_with_stdio(0);
-	cin.tie(0);
-	if (!name.empty()) {
-		freopen((name + ".in").c_str(), "r", stdin);
-		freopen((name + ".out").c_str(), "w", stdout);
-	}
-}
-//ifstream fin ("test.in");
-//ofstream fout ("test.out");	
 
 void solve(){
-	//solution
+	int n, k; cin >> n >> k;
+	string s; cin >> s;
+	string ans(n, '.');
+	int posg = -k - 1;
+	int posh = -k - 1;
+	int count = 0;
+	for(int i = 0; i < n; ++i){
+		if(s[i] == 'G' && i - posg > k){
+			count++;
+			if(i + k >= n){
+				posg = i;
+				while(ans[posg] == 'H') posg--;
+			}else{
+				posg = i+k;
+			}
+			ans[posg] = 'G';
+		}
+		if(s[i] == 'H' && i - posh > k){
+			count++;
+			if(i + k >= n){
+				posh = i;
+				while(ans[posh] == 'G') posh--;
+			}else{
+				posh = i+k;
+			}
+			ans[posh] = 'H';
+		}
+
+	}
+	cout << count << endl;
+	cout << ans;
+	cout << endl;
 }
 
 // cout << "Case #" << t << ": ";
-int main(){
-	fast_io;
-	setIO("test");
-
+int main(){fast_io;
+	int t; cin >> t;
+	while(t--){
+		solve();
+	}
 	return (0);
 }

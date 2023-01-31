@@ -37,26 +37,28 @@ std::ostream & operator << (std::ostream &os ,std::vector<T> &v){
 	os << endl;
 	return os;
 }
-// FastIO: see General -> Fast Input and Output
-void setIO(string name = ""){
-	ios_base::sync_with_stdio(0);
-	cin.tie(0);
-	if (!name.empty()) {
-		freopen((name + ".in").c_str(), "r", stdin);
-		freopen((name + ".out").c_str(), "w", stdout);
-	}
-}
-//ifstream fin ("test.in");
-//ofstream fout ("test.out");	
+ifstream fin ("test.in");
+ofstream fout ("test.out");	
 
 void solve(){
-	//solution
+	ll n; cin >> n;
+	vector<int> v(n);
+	for(int i = 0; i < n; ++i) cin >> v[i];
+	sort(v.begin(), v.end());
+	ll sum = v[0] * n;
+	ll ans = 0;
+	for(int i = 0; i < n; ++i){
+		//1 4 6 6	
+		if(sum < (v[i] * (n - i) )){
+			ans = v[i];
+			sum = v[i] * (n - i);
+		}
+	}
+	cout << sum << " " << ans << endl;
 }
 
 // cout << "Case #" << t << ": ";
-int main(){
-	fast_io;
-	setIO("test");
-
+int main(){fast_io;
+	solve();
 	return (0);
 }

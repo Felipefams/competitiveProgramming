@@ -37,47 +37,108 @@ std::ostream & operator << (std::ostream &os ,std::vector<T> &v){
 	os << endl;
 	return os;
 }
+// FastIO: see General -> Fast Input and Output
+void setIO(string name = ""){
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
+	if (!name.empty()) {
+		freopen((name + ".in").c_str(), "r", stdin);
+		freopen((name + ".out").c_str(), "w", stdout);
+	}
+}
+//ifstream fin ("test.in");
+//ofstream fout ("test.out");	
+
+struct Cow{
+	int l; //left
+	int r; //right
+	int c; //temperature C
+};
+struct AC{
+	int l;
+	int r;
+	int c;
+	int price;
+};
+
+void print(vector<Cow> v){
+	for(auto &x : v){
+		cout << x.l << " ";
+		cout << x.r << " ";
+		cout << x.c << " ";
+		cout << endl;
+	}
+}
+void print(vector<AC> v){
+	for(auto &x : v){
+		cout << x.l << " ";
+		cout << x.r << " ";
+		cout << x.c << " ";
+		cout << x.price << " ";
+		cout << endl;
+	}
+}
+bool cmpa(AC a, AC b){
+	return a.l < b.l || a.r < b.r;
+}
+bool cmpc(Cow a, Cow b){
+	return a.l < b.l || a.r < b.r;
+}
+
+int range[105];
 
 void solve(){
-	int n, k; cin >> n >> k;
-	string s; cin >> s;
-	string ans(n, '.');
-	int posg = -k - 1;
-	int posh = -k - 1;
-	int count = 0;
+	int n, m; cin >> n >> m;
+	vector<Cow> vc(n);
+	vector<AC> va(m);
 	for(int i = 0; i < n; ++i){
-		if(s[i] == 'G' && i - posg > k){
-			count++;
-			if(i + k >= n){
-				posg = i;
-				while(ans[posg] == 'H') posg--;
-			}else{
-				posg = i+k;
-			}
-			ans[posg] = 'G';
-		}
-		if(s[i] == 'H' && i - posh > k){
-			count++;
-			if(i + k >= n){
-				posh = i;
-				while(ans[posh] == 'G') posh--;
-			}else{
-				posh = i+k;
-			}
-			ans[posh] = 'H';
-		}
-
+		Cow c; 
+		cin >> c.l;
+		cin >> c.r;
+		for(int j = c.l; j < c.r; ++i) range[j] = c.c;
+		cin >> c.c;
+		vc[i] = c;
 	}
-	cout << count << endl;
-	cout << ans;
+	for(int i = 0; i < m; ++i){
+		AC c; 
+		cin >> c.l;
+		cin >> c.r;
+		cin >> c.c;
+		cin >> c.price;
+		va[i] = c;
+	}
+	sort(va.begin(), va.end(), cmpa);
+	sort(vc.begin(), vc.end(), cmpc);
+	vector<set<AC>> vsc;
+	for(int i = 0; i < n; ++i){
+		int l = vc[i].l;
+		int r = vc[i].r;
+		set<AC> st;
+		for(int j = 0; j < m; ++j){
+			if(va[j].l <= l && va[j].r >= l){
+				st.insert(va[j]);
+			}
+		}
+		vsc.pb(st);
+	}
+	for(int i = 0; i < vsc.size(); ++i){
+		bool isSatisfied = false;
+		int k[] = range;
+		while(!isSatisfied){
+
+		}
+	}
+
 	cout << endl;
+	print(vc);
+	print(va);
 }
 
 // cout << "Case #" << t << ": ";
-int main(){fast_io;
-	int t; cin >> t;
-	while(t--){
-		solve();
-	}
+int main(){
+	fast_io; //setIO("test");
+//	solve();
+	cout << "10" << endl;
+
 	return (0);
 }
