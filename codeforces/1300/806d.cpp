@@ -34,27 +34,23 @@ std::ostream & operator << (std::ostream &os ,std::vector<T> &v){
 	return os;
 }
 
-void solve(){
-	int n; cin >> n;
-	vector<ll> v(n+1);
-	for(int i = 1; i <= n; ++i){
-		ll k; cin >> k;
-//		if(k >= n) v[i] = -1;
-//		else v[i] = k;	
-		v[i] = k;
+void solve() {
+	int n;
+	cin >> n;
+	int a[n + 1];
+	for (int i = 1; i <= n; i++) {
+		cin >> a[i];
 	}
-	multiset<ll> st;
-	for(int i = 1; i <= n; ++i){
-		if(v[i] < i){
-			st.insert(v[i]);
-		}
+	long long res = 0;
+	vector<int> v;
+	for (int i = 1; i <= n; i++) {
+		if (a[i] >= i) {continue;}
+		res += (long long)(lower_bound(v.begin(), v.end(), a[i]) - v.begin());
+		v.push_back(i);
 	}
-//	for(auto &x : st) cout << x << " "; 
-//	cout << endl;
-	int k = st.size();
-	int ans = ((k*(k-1))/2);
-	cout << k << endl;
+	cout << res << '\n';
 }
+
 
 // cout << "Case #" << t << ": ";
 int main(){
