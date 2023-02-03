@@ -34,7 +34,20 @@ std::ostream & operator << (std::ostream &os ,std::vector<T> &v){
 }
 
 void solve(){
-	//solution
+	int n; cin >> n;
+	string s; cin >> s;
+	int x = 0, y = 0;
+	for(int i = 0; i < n; ++i){
+		if(s[i] == 'U') x++;
+		else if(s[i] == 'D') x--;
+		else if(s[i] == 'R') y++;
+		else if(s[i] == 'L') y--;
+		if(x == 1 && y == 1){
+			cout << "YES\n";
+			return;
+		}
+	}
+	cout << "NO\n";
 }
 
 // cout << "Case #" << t << ": ";
@@ -43,7 +56,7 @@ int main(){
 	int t = 0;
 	cin >> t;
 	while(t--){
-
+		solve();
 	}
 	return (0);
 }

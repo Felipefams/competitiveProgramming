@@ -34,7 +34,15 @@ std::ostream & operator << (std::ostream &os ,std::vector<T> &v){
 }
 
 void solve(){
-	//solution
+	string c = "codeforces";
+	char s; cin >> s;
+	for(int i = 0; i < c.size(); ++i){
+		if(c[i] == s){
+			cout << "YES" << endl;
+			return;
+		}
+	}
+	cout << "NO" << endl;
 }
 
 // cout << "Case #" << t << ": ";
@@ -43,7 +51,7 @@ int main(){
 	int t = 0;
 	cin >> t;
 	while(t--){
-
+		solve();
 	}
 	return (0);
 }

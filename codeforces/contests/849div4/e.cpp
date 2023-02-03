@@ -34,7 +34,28 @@ std::ostream & operator << (std::ostream &os ,std::vector<T> &v){
 }
 
 void solve(){
-	//solution
+	ll n; cin >> n;
+	vector<ll> v(n);
+	ll m = (ll)INT_MAX;
+	for(int i = 0; i < n; ++i) cin >> v[i];	
+	priority_queue<int> pq;	
+	map<int, int> mp;
+	for(int i = 0; i < n; ++i) mp[v[i]] = i;	
+	for(auto &x : v) pq.push(x);
+	while(!pq.empty()){
+		int k = -v[mp[pq.top()]];
+		int c = -v[mp[pq.top()] - 1];
+		int a = v[mp[pq.top()]];
+		int b = v[mp[pq.top()] - 1];
+		if(k + c > a+b){
+			v[mp[pq.top()] - 1] = c;
+			v[mp[pq.top()]] = k;
+		}
+		pq.pop();
+	}
+	int ans = 0;
+	for(auto &x : v) ans += x;
+	cout << ans << endl;
 }
 
 // cout << "Case #" << t << ": ";
@@ -43,7 +64,7 @@ int main(){
 	int t = 0;
 	cin >> t;
 	while(t--){
-
+		solve();
 	}
 	return (0);
 }
