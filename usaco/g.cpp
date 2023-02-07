@@ -33,17 +33,51 @@ std::ostream & operator << (std::ostream &os ,std::vector<T> &v){
 	return os;
 }
 
+void setIO(string name = ""){
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
+	if (!name.empty()) {
+		freopen((name + ".in").c_str(), "r", stdin);
+		freopen((name + ".out").c_str(), "w", stdout);
+	}
+}
+
+bool adjm[101][101];
+bool m[101][101];
+
 void solve(){
-	//solution
+	int n; cin >> n;
+	if (n == 1) {
+		cout << -1 << endl;
+		return;
+	}
+	for(int i = 0; i < n-1; ++i){
+		int e; cin >> e;
+		int k; cin >> k;
+		adjm[e][k] = true;
+	}
+	for(int i = 1; i <= n; ++i){
+		for(int j = 1; j <= n; ++j){
+			cout << adjm[i][j] << " ";
+		}
+		cout << endl;
+	}
+	p(1, 1, n);
+	cout << endl;
+	for(int i = 1; i <= n; ++i){
+		for(int j = 1; j <= n; ++j){
+			cout << m[i][j] << " ";
+		}
+		cout << endl;
+	}
+
+	cout << -1 << endl;
 }
 
 // cout << "Case #" << t << ": ";
 int main(){
+//	setIO("factory");
 	fast_io;
-	int t = 0;
-	cin >> t;
-	while(t--){
-
-	}
+	solve();
 	return (0);
 }
