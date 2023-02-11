@@ -13,6 +13,7 @@ void solve(ll n){
 		cout << array[i] << " ";
 	}
 }
+
 int main (void){
 	cin.tie(NULL);
 	ios_base::sync_with_stdio(false);
