@@ -88,4 +88,3 @@ int main(){
 	kmp(s, "abxababxab");
 	return (0);
 }
-
