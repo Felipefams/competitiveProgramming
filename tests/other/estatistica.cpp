@@ -107,19 +107,11 @@ vector<double> standardDeviation(){
 }
 
 vector<double> cv(){
-	vector<double> ans(4);
+	vector<double> ans(4);	
+	vector<double> m = mean();
+	vector<double> std = standardDeviation();
 	for(int i = 0; i < 4; ++i){
-		int m = 0;
-		for(int j = 0; j < 12; ++j){
-			m += values[i][j];
-		}
-		m /= 12;
-		double var = 0;
-		for(int j = 0; j < 12; ++j){
-			var += sqrt(values[i][j] - m);
-		}
-		var /= 12;
-		ans[i] = sqrt(var) / m;
+		ans[i] = 100 * std[i] / m[i];
 	}
 	return ans;
 }
@@ -146,29 +138,29 @@ int main(){
 	for(int i = 0; i < 7; ++i){
 		switch(i){
 			case 0:
-				cout << "Mean ";
+				cout << "Mean: ";
 				break;
 			case 1:
-				cout << "Median ";
+				cout << "Median: ";
 				break;
 			case 2:
-				cout << "Mode ";
+				cout << "Mode: ";
 				break;
 			case 3:
-				cout << "Amplitude ";
+				cout << "Amplitude: ";
 				break;
 			case 4:
-				cout << "Variance ";
+				cout << "Variance: ";
 				break;
 			case 5:
-				cout << "Standard Deviation ";
+				cout << "Standard Deviation: ";
 				break;
 			case 6:
-				cout << "Coefficient of Variation ";
+				cout << "Coefficient of Variation: ";
 				break;
-			}
+		}
 		for(int j = 0; j < 4; ++j){
-			cout << ans[i][j] << " ";
+			cout << setprecision(3) << ans[i][j] << "\t";
 		}
 		cout << endl;
 	}
