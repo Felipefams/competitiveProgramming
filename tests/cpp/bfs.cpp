@@ -34,18 +34,29 @@ std::ostream & operator << (std::ostream &os ,std::vector<T> &v){
 }
 
 const int N = 100005;
-//vector<set<int>> adj(N); is usually a better option i guess
-vector<int> adj[N];
-bool visited[N+1];
+vector<int> adj[N]; 
+queue<int> q;
 
-void dfs(int n){
-	if(visited[n]) return;
-	visited[n] = true;
-	//process node n
-	cout << n << endl;
-	for(auto& x : adj[n]){
-		dfs(x);
+void bfs(int n){
+	bool visited[N+1];
+	int distance[N+1];
+
+	visited[n] = true; //mark as visited
+	distance[n] = 0; //distance from source
+	q.push(n); //push the first node into the queue
+	while(!q.empty()){
+		int s = q.front();//first node in the queue
+		q.pop(); //remove the first node from the queue
+		cout << s << endl;
+		//process node s
+		for(auto &x : adj[s]){
+			if(visited[x]) continue;
+			visited[x] = true;
+			distance[x] = distance[s] + 1;
+			q.push(x);
+		}
 	}
+
 }
 
 // cout << "Case #" << t << ": ";
@@ -58,6 +69,7 @@ int main(){
 		adj[n].pb(m);	
 		adj[m].pb(n);
 	}
-	dfs(0);
+	bfs(0);
+	// dfs(0);
 	return (0);
 }
