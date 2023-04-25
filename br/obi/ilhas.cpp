@@ -51,10 +51,10 @@ vector<int> djikstra(int n, int target){
 	for(auto &x : distance) x = imax;
 	visited[n] = true; //mark as visited
 	distance[n] = 0; //distance from source
-	q.push(mk(n, distance[n])); //push the first node into the queue
+	q.push(mk(n, distance[n]));
 	while(!q.empty()){
-		pii s = q.top();//first node in the queue
-		q.pop(); //remove the first node from the queue
+		pii s = q.top();
+		q.pop();
 		for(auto &x : adj[s.fi]){
 			if(distance[x.fi] > distance[s.fi] + x.sc){
 				distance[x.fi] = distance[s.fi] + x.sc;
