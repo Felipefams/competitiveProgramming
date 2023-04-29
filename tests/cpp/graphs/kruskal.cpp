@@ -44,7 +44,7 @@ class Compare{
 };
 priority_queue<pii, vector<pii>, Compare> q;
 
-int djikstra(int n, int target){
+int kruskal(int n, int target){
 	bool visited[N+1];
 	int distance[N+1];
 	for(auto &x : distance) x = imax;
@@ -75,7 +75,7 @@ int main(){
 		adj[n].pb(mk(m,w));	
 		// adj[m].pb(mk(n,w));
 	}
-	cout << "distance from 0 to 3 = "<< djikstra(0, 3) << endl;
+	cout << "distance from 0 to 3 = "<< kruskal(0, 3) << endl;
 	// dfs(0);
 	return (0);
 }
