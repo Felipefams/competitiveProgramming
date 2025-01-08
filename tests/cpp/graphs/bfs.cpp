@@ -56,7 +56,6 @@ void bfs(int n){
 			q.push(x);
 		}
 	}
-
 }
 
 // cout << "Case #" << t << ": ";
