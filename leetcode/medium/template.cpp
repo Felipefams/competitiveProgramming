@@ -1,8 +1,3 @@
-/*
-ID: augusto15
-TASK: test
-LANG: C++                 
-*/
 #include <bits/stdc++.h>
 using namespace std;
 //vrum vrum
@@ -37,17 +32,6 @@ std::ostream & operator << (std::ostream &os ,std::vector<T> &v){
 	os << endl;
 	return os;
 }
-// FastIO: see General -> Fast Input and Output
-void setIO(string name = ""){
-	ios_base::sync_with_stdio(0);
-	cin.tie(0);
-	if (!name.empty()) {
-		freopen((name + ".in").c_str(), "r", stdin);
-		freopen((name + ".out").c_str(), "w", stdout);
-	}
-}
-// ifstream fin ("test.in");
-// ofstream fout ("test.out");	
 
 void solve(){
 	//solution
@@ -56,7 +40,10 @@ void solve(){
 // cout << "Case #" << t << ": ";
 int main(){
 	fast_io;
-	setIO("test");
+	int t = 0;
+	cin >> t;
+	while(t--){
 
+	}
 	return (0);
 }
