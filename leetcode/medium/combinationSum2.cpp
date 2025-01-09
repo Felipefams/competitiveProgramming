@@ -42,22 +42,22 @@ std::ostream& operator<<(std::ostream& os, std::vector<T>& v) {
 
 vector<vector<int>> combinationSum(vector<int>& nums, int target) {
     vector<vector<int>> ans;
-    vector<int> v;
 
-    function<void(int, int)> solve = [&](int i, int target) {
+    function<void(int, int, vector<int>&)> solve = [&](int i, int target, vector<int>& v) {
         int sum = accumulate(v.begin(), v.end(), 0);
         if (sum == target) {
             ans.push_back(v);
             return;
         }
         if (i >= nums.size() || sum > target) return;
-        v.push_back(nums[i]);
-        solve(i, target);
-        v.pop_back();
-        solve(i + 1, target);
+        for (int x = i; x < nums.size(); x++) {
+            v.push_back(nums[x]);
+            solve(i + 1, target, v);
+            v.pop_back();
+        }
     };
 
-    solve(0, target);
+    solve(0, target, []);
     return ans;
 }
 
@@ -71,11 +71,11 @@ int main() {
     for (int i = 0; i < ans.size(); ++i) {
         cout << "[";
         for (int j = 0; j < ans[i].size(); ++j) {
-            cout << ans[i][j]; 
-            if(j < ans[i].size() - 1) cout << ",";
+            cout << ans[i][j];
+            if (j < ans[i].size() - 1) cout << ",";
         }
         cout << "]";
-        if(i < ans.size() - 1) cout << ",";
+        if (i < ans.size() - 1) cout << ",";
     }
     cout << "]";
 
