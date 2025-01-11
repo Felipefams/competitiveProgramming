@@ -1,33 +1,27 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<vector<int>> subsets(vector<int>& nums) {
-    vector<vector<int>> result;
-    vector<int> currentSubset;
+vector<vector<int>> subsetsWithDup(vector<int>& nums) {
+        vector<int> v;
+        vector<vector<int>> ans;
+        solve(0, v, nums, ans);
 
-    // Helper function for recursion
-    function<void(int)> backtrack = [&](int j) {
-        // Add the current subset to the result
-        result.push_back(currentSubset);
-        
-        // Explore all options by including elements from index j to the end
-        for (int i = j; i < nums.size(); ++i) {
-            // Include nums[i] in the current subset
-            currentSubset.push_back(nums[i]);
-            
-            // Recur to generate subsets starting from the next element
-            backtrack(i + 1);
-            
-            // Backtrack by removing the last element added to the current subset
-            currentSubset.pop_back();
+        sort(ans.begin(), ans.end());
+
+        return ans;
+    }
+
+    void solve(int i, vector<int> &v, vector<int> &nums, vector<vector<int>> &ans){
+        if(i >= nums.size()){
+            if(std::find(ans.begin(), ans.end(), v) == ans.end())
+            ans.push_back(v);
+            return;
         }
-    };
-
-    // Start recursion from index 0
-    backtrack(0);
-
-    return result;
-}
+        v.push_back(nums[i]);
+        solve(i+1, v, nums, ans);
+        v.pop_back();
+        solve(i+1, v, nums, ans);
+    }
 
 int main(void) {
     vector<int> nums = {1, 2, 3};
