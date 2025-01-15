@@ -12,6 +12,7 @@ vector<vector<int>> subsetsWithDup(vector<int>& nums) {
     }
 
     void solve(int i, vector<int> &v, vector<int> &nums, vector<vector<int>> &ans){
+        
         if(i >= nums.size()){
             if(std::find(ans.begin(), ans.end(), v) == ans.end())
             ans.push_back(v);
