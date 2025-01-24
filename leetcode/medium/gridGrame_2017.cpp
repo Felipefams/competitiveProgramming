@@ -48,6 +48,9 @@ long long gridGame(vector<vector<int>>& grid) {
         psa[i] = psa[i - 1] + psa[i];
         ps[i] = ps[i - 1] + ps[i];
     }
+
+    int index_to_zero = -1;
+    // for(int i = 0; i <)
 }
 
 // long long pass_once(vector<vector<int>> &grid){
