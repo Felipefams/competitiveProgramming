@@ -50,7 +50,15 @@ long long gridGame(vector<vector<int>>& grid) {
     }
 
     int index_to_zero = -1;
-    // for(int i = 0; i <)
+    long long best_sum = 0;
+    const int n = psa.size();
+    for(int i = 1; i < n; ++i){
+        long long calc = psa[n-1] - psa[i-1] + ps[i-1]; 
+        if(calc > best_sum){
+            best_sum = calc;
+            index_to_zero = i;
+        }
+    }
 }
 
 // long long pass_once(vector<vector<int>> &grid){
