@@ -57,7 +57,6 @@ long long gridGame(vector<vector<int>>& grid) {
         if(calc > best_sum){
             best_sum = calc;
             index_to_zero = i;
-
         }
     }
 }
