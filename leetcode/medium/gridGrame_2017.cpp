@@ -59,6 +59,7 @@ long long gridGame(vector<vector<int>>& grid) {
             index_to_zero = i;
         }
     }
+    
 }
 
 // long long pass_once(vector<vector<int>> &grid){
