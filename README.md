@@ -1,4 +1,3 @@
 # competitiveProgramming
-repository created to save my solutions and attempts at any
-competitive programming related stuff
+repository created to save my solutions and attempts on competitive programming problems
 
